@@ -1,0 +1,154 @@
+/**
+ * White theme for reveal.js. This is the opposite of the 'black' theme.
+ *
+ * Copyright (C) 2015 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
+
+$brandColor: rgb(0, 77, 159);
+$secondaryColor: rgb(20, 173, 170);
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+
+$mainColor: #000;
+$headingColor: #000;
+
+$mainFontSize: 38px;
+$mainFont: 'Roboto', Helvetica, sans-serif;
+$headingFont: 'Roboto', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: 800;
+$linkColor: $brandColor;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: $secondaryColor;
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+// Theme template ------------------------------
+@import "../template/theme";
+
+.slide-background.splash {
+    background: url(/img/bg2.jpg) center no-repeat;
+    background-size: 100%;
+}
+$color-mint: rgb(20,173, 170);
+body {
+  transition: background-color 1s ease !important; 
+}
+html.hands-on body {
+  background-color: $color-mint;
+  color: white;
+  .reveal {
+    color: white;
+    h1,
+    h2,
+    h3,
+    p {
+      color: white;
+    }
+  }
+}
+
+.light {
+    font-weight: 300;
+}
+
+.reveal {
+font-weight: 100;
+
+pre,code {
+  width: 100%;
+  margin: 0;
+  display: inline-block;  
+}
+pre code[type="html"] {
+  white-space: normal;
+}
+
+.left {
+  text-align: left;
+}
+
+.small {
+  font-size: .7em;
+}
+
+section {
+  img {
+    border: 0;
+    box-shadow: none;
+  }
+
+}
+
+.footer {
+  color: white;
+  position: absolute; 
+  left: 0;
+  bottom: 1em;
+  text-align: left;
+  font-size: .6em;
+  width: 100%;
+
+  background: url(/img/logo_white.png) right 1.2em no-repeat;
+  background-size: auto 60%;
+
+  p {
+    margin-bottom: .3em;
+  }
+
+  ul {
+    opacity: .5;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  li {
+    margin: 0;
+    margin-right: 1em;
+    padding:0;
+    float: left;
+  }
+}
+
+
+.splash {
+    height: 100%;
+    h1,
+    h2,
+    h3,
+    p,
+    a {
+        color: white;
+        text-align: left;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-weight: 100 !important;
+        font-size: 2em;
+    }
+}
+pre {
+    box-shadow: none;
+}
+}
+
+
