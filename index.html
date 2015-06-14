@@ -1,119 +1,119 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 
-		<title>AngularJS Foundation</title>
+        <title>AngularJS Foundation</title>
 
-		<meta name="author" content="ti&amp;m AG, Stefan Zollinger">
+        <meta name="author" content="ti&amp;m AG, Stefan Zollinger">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-		<link href='http://fonts.googleapis.com/css?family=Roboto:300,700,400,100' rel='stylesheet' type='text/css'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:300,700,400,100' rel='stylesheet' type='text/css'>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/ti8m.css" id="theme">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/ti8m.css" id="theme">
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
 
-	<body>
+    <body>
 
-		<div class="reveal">
+        <div class="reveal">
 
-			<div class="slides">
-				<section class="splash">
-					<h1>AngularJS Foundations</h1>
-					<h2>Workshop</h2>
-					<p>
-					<small>15. Juni 2015</small>
-					</p>
-					<div class="footer">
-					<p>
-					Stefan Zollinger • Emil Effila • Stefano Manco • Mato Illic
-					</p>
+            <div class="slides">
+                <section class="splash">
+                    <h1>AngularJS Foundations</h1>
+                    <h2>Workshop</h2>
+                    <p>
+                    <small>15. Juni 2015</small>
+                    </p>
+                    <div class="footer">
+                    <p>
+                    Stefan Zollinger • Emil Effila • Stefano Manco • Mato Illic
+                    </p>
 
 
-						<ul>
-							<li>Consulting.</li>
-							<li>Design.</li>
-							<li>Agile Projects.</li>
-							<li>Products.</li>
-							<li>Innovation Hosting.</li>
+                        <ul>
+                            <li>Consulting.</li>
+                            <li>Design.</li>
+                            <li>Agile Projects.</li>
+                            <li>Products.</li>
+                            <li>Innovation Hosting.</li>
 
-						</ul>
+                        </ul>
 
-						
-					</div>
-				</section>
-				<section>
-					<h2>Warum dieser Kurs?</h2>
-				</section>
+                        
+                    </div>
+                </section>
+                <section>
+                    <h2>Warum dieser Kurs?</h2>
+                </section>
 
-				<section>
-					<h2>
-						Einstieg in AngularJS ist zwar einfach, aber...
-					</h2>
-					<ul>
-						<li class="fragment">Keine (offiziellen) Konventionen
+                <section>
+                    <h2>
+                        Einstieg in AngularJS ist zwar einfach, aber...
+                    </h2>
+                    <ul>
+                        <li class="fragment">Keine (offiziellen) Konventionen
 <li class="fragment">Viele verschiedene Ansätze im Netz
 <li class="fragment">AngularJS beinhaltet viel <br>  "Magic" der man nicht blind vertrauen sollte
-					</ul>
-				</section>
+                    </ul>
+                </section>
 
-				<section>
-					<h2>Ziele</h2>
-					<li class="fragment">Guidelines und Struktur geben
-					<li class="fragment">AngularJS Konzepte und deren Anwendungen klären
-					<li class="fragment">"Magische" Teile von AngularJS durchleuchten
+                <section>
+                    <h2>Ziele</h2>
+                    <li class="fragment">Guidelines und Struktur geben
+                    <li class="fragment">AngularJS Konzepte und deren Anwendungen klären
+                    <li class="fragment">"Magische" Teile von AngularJS durchleuchten
 
-				</section>
+                </section>
 
 
-				<section>
-					<h2>Setup Workshop Projekt</h2>
-					<p>
+                <section>
+                    <h2>Setup Workshop Projekt</h2>
+                    <p>
                         Schritte um das Projekt zu installieren:
-					</p>
+                    </p>
                     <pre>
                         <code class="bash">
-$ git clone // TODO
+$ git clone https://github.com/matoilic/AngularWorkshop 
 $ npm install
 $ gulp
                         </code>
                     </pre>
-				</section>
+                </section>
 
-				<section>
-					 <h2>Übersicht Workshop Projekt</h2>
-					 <ul>
-					 	<li>Abhängigkeiten
-					 	<li>Verzeichnisstrutkur
-					 	<li>Build System
-					 </ul>
-				</section>
-				<section>
-					<h2>Abhängigkeiten (npm)</h2>
-					<p>
-					Definiert in package.json:
-					</p>
+                <section>
+                     <h2>Übersicht Workshop Projekt</h2>
+                     <ul>
+                         <li>Abhängigkeiten
+                         <li>Verzeichnisstrutkur
+                         <li>Build System
+                     </ul>
+                </section>
+                <section>
+                    <h2>Abhängigkeiten (npm)</h2>
+                    <p>
+                    Definiert in package.json:
+                    </p>
                     <pre>
                         <code class="json">
 {
@@ -132,7 +132,7 @@ $ gulp
   }
 }
 
-                     	</code>
+                         </code>
                      </pre>
 
                     <aside class="notes">
@@ -142,12 +142,12 @@ Verwaltung mittels NPM CLI
 
 
                     </aside>
-				</section>
+                </section>
 
-				<section>
-					<h2>Top Level Struktur</h2>
-					<pre>
-                       	<code class="bash">
+                <section>
+                    <h2>Top Level Struktur</h2>
+                    <pre>
+                           <code class="bash">
 data/           
 gulpfile.js/   
 node_modules/
@@ -161,62 +161,67 @@ protractor.conf.js
 favicon.ico        
 index.html         
 
-                       	</code>
-           			</pre>
+                           </code>
+                       </pre>
 
-           			<aside class="notes">
-           				- Struktur ist ähnlich bei den meisten modernen Frontend Projekten<br><br>
-	           			Kurz erklären was warum.
-           			</aside>
+                       <aside class="notes">
+                           - Struktur ist ähnlich bei den meisten modernen Frontend Projekten<br><br>
+                           Kurz erklären was warum.
+                       </aside>
 
-				</section>
-				<section>
-					<h2>AngularJS Struktur</h2>
-					<pre>
-                       	<code class="bash">
+                </section>
+                <section>
+                    <h2>AngularJS Struktur</h2>
+                    <pre>
+                           <code class="bash">
 components/
     /address-book/
     /application/
-    /home-state/index.js
-    		   /home-state.js
-    		   /home-controller.js
-               /home.html
+    /welcome-state/index.js
+               /welcome-state.js
+               /welcome-controller.js
+               /welcome.html
 images/
 stylesheets/
 
-                       	</code>
-           			</pre>
+                           </code>
+                       </pre>
 
-           			<aside class="notes">
-	           			Kurz erklären was warum.
-           			</aside>
+                       <aside class="notes">
+                           Kurz erklären was warum.
+                       </aside>
 
-				</section>
+                </section>
 
-				<section>
-					<h2>Standard Projektstruktur</h2>
-					<pre>
-                       	<code class="bash">
+                <section>
+                    <h2>Standard Projektstruktur</h2>
+                    <pre>
+                           <code class="bash">
 /controllers/home-controller.js
             /other-controller.js
+            /even-more-controller.js
 /services/home-service.js
+         /other-service.js
+         /3rd-service.js
 /views/home.html
-                       	</code>
-           			</pre>
+      /other.html
+      /more-templates.html
+                           </code>
+                       </pre>
 
-           			<p>
-           			<img width="200" height="200" src="http://cdn.meme.am/instances/500x/11541951.jpg">
-           			</p>
+                       <p>
+                       <img width="200" height="200" src="http://cdn.meme.am/instances/500x/11541951.jpg">
+                       </p>
 
 
-				</section>
+                </section>
 
 
-				<section>
-           			<h2>
-           			Vorteile fachlicher Aufteilung
-           			</h2>
-           			<ul class="small">
+                <section>
+                       <h2>
+                       Vorteile fachlicher Aufteilung
+                       </h2>
+                       <ul class="small">
 <li>Besser skalierbar
 <li>Bessere Wartbarkeit, weil Code einfacher zu finden ist
 <li>Oft zusammen verwendete Dateien sind näher beieinander
@@ -224,127 +229,126 @@ stylesheets/
 
 </ul>
 
-				</section>
-				<section>
-					<h2>Build System: Gulp</h2>
-					<p>
-						gulpfile.js
-					</p>
-					<ul>
-					<li>
-					Default Task:
-					<ul>
-						<li><strong>connect:</strong> Startet Server</li>
-						<li><strong>watch:</strong> Überwacht Dateiänderungen und lädt die Seite neu
-					</ul>
-					</li>
-					<li>"test" Task:
-					<ul>
-						<li><strong>test:</strong> Startet Protractor end-to-end Tests
-					</ul>
-					</li>
-						
-					</ul>
+                </section>
+                <section>
+                    <h2>Build System: Gulp</h2>
+                    <p>
+                        gulpfile.js
+                    </p>
+                    <ul>
+                    <li>
+                    Default Task:
+                    <ul>
+                        <li><strong>connect:</strong> Startet Server</li>
+                        <li><strong>watch:</strong> Überwacht Dateiänderungen und lädt die Seite neu
+                    </ul>
+                    </li>
+                    <li>"test" Task:
+                    <ul>
+                        <li><strong>test:</strong> Startet Protractor end-to-end Tests
+                    </ul>
+                    </li>
+                        
+                    </ul>
 
-				</section>
+                </section>
 
-				<section>
-					<h2>AngularJS im Überblick</h2>
-					<img src="/img/ng-arch.svg">
-				</section>
+                <section>
+                    <h2>AngularJS im Überblick</h2>
+                    <img src="/img/ng-arch.svg">
+                </section>
 
-				<section>
-					<h2>Module:<br>
-					Sammlungen von AngularJS Objekten
-				</section>
+                <section>
+                    <h2>Module:<br>
+                    Sammlungen von AngularJS Objekten
+                </section>
 
-				<section>
+                <section>
 <h2>Neues Modul definieren:</h2>
 <pre>
-                       	<code class="javascript">
+                           <code class="javascript">
 angular.module('myApp', []);
 </code>
 </pre>
 
 <h2>Modul 'myApp' referenzieren</h2>
 <pre>
-                       	<code class="javascript">
+                           <code class="javascript">
 angular.module('myApp');
 </code>
 </pre>
 
-				</section>
+                </section>
 
-				<section>
-					<h2>Modul-Laufzeit</h2>
-					<pre>
-                       	<code class="javascript">
+                <section>
+                    <h2>Modul-Laufzeit</h2>
+                    <pre>
+                           <code class="javascript">
 angular
-.module('myModule', ['ui-router'])
-.config(function($stateProvider){})
-	.run(initializationFn)
-	.provider('myProvider', function(){})
-	.controller('myController', '')
-
-                       	</code>
-           			</pre>
-           			<p>
-           			Ablauf
-           			</p>
-           			<ul>
+    .module('myModule', ['ui-router'])
+    .config(function($stateProvider){})
+        .run(initializationFn)
+        .provider('myProvider', function(){})
+        .controller('myController', '')
+                           </code>
+                       </pre>
+                       <p>
+                       Ablauf
+                       </p>
+                       <ul>
 <li>Modul wird mit Dependency 'ui-router'  initialisiert
 <li>config() wird ausgeführt
 <li>run() wird ausgeführt
 
-           			</ul>
+                       </ul>
 
 
-				</section>
+                </section>
 
 
-				<section>
-					<h2>Dependency Injection</h2>
-					<ul>
-					<li>Jede AngularJS App hat einen Injector
-<li>Bietet einen Weg Module nach Namen zu referenzieren
-<li>Jedes Modul wird nur einmal instanziert
-<li>Injector löst Dependencies in Funktionen auf:
+                <section>
+                    <h2>Dependency Injection</h2>
+                    <ul>
+<li class="fragment">Injector bietet einen Weg Module nach Namen zu referenzieren
+                    <li class="fragment">Jede AngularJS App hat einen Injector
+<li class="fragment">Jedes Modul wird nur einmal instanziert
+<li class="fragment">Injector löst Dependencies in Funktionen auf:
 </ul>
 
-<pre>
-	<code class="javascript">
+<pre class="fragment">
+    <code class="javascript">
 function MyService(DependencyA, DependencyB) {
 // Do something with DependencyA
   DependencyA.doSomething();
 }
-	</code>
+    </code>
 </pre>
 
 
-				</section>
-				<section>
-					<h2>Dependency Injection</h2>
-					<ul>
-					<li><strong>Achtung:</strong> Automatische DI funktioniert nur solange der Code nicht minifiziert ist.
+                </section>
+                <section>
+                    <h2>Dependency Injection</h2>
+                    <ul>
+                    <li><strong>Achtung:</strong> Automatische DI funktioniert nur solange der Code nicht minifiziert ist.
 <li><strong>Besser:</strong> Dependencies explizit angeben:
 </ul>
 
 <pre>
-	<code class="javascript">
+    <code class="javascript">
 function MyService(DependencyA) {};
 
 angular.module('myApp')
-	.service('MyService', ['DependencyA', MyService]);
+    .service('MyService', ['DependencyA', MyService]);
 
-	</code>
+    </code>
 </pre>
 
 
-				</section>
+                </section>
 <section>
 <h2>Tipp: Mit 'ngStrictDi' explizite DI Annotationen forcieren:</h2>
 <pre>
-	<code class="html">
+    <code class="html">
 &lt;body ng-app="myApp" ng-strict-di&gt;
 </code>
 </pre>
@@ -357,40 +361,22 @@ angular.module('myApp')
 HTML Files:
 </p>
 <pre>
-	<code type="html">
-		<h1>Address book</h1>
-		<p>
-		  Hello World.
-		</p>
+    <code type="html">
+        <h1>Address book</h1>
 
-	</code>
+        <p>
+          Hello World.
+        </p>
+
+    </code>
 </pre>
 </section>
 
 <section>
-	<h2>Routing</h2>
-	<ul>
-	Verbindet HTML Template mit URL</ul>
+    <h2>Routing</h2>
+    <ul>
+    Verbindet HTML Template mit URL</ul>
 </section>
-<section>
-	<h2>ng-route vs ui-router</h2>
-	<ul>
-	<li><h3>ng-route</h3>
-		<ul>
-		<li>Angular Default
-		<li>Erlaubt einfache Routes
-		</ul>
-	</li>
-	<li><h3>ui-router</h3>
-	<ul>
-	<li>Kann verschachtelte Views darstellen und komplexe States abbilden
-	<li>De-facto Standard
-	</ul>
-	</li>
-	</ul>
-
-</section>
-
 <section>
 <h2>Beispiel einer Route:</h2>
 <pre>
@@ -403,8 +389,6 @@ angular.module('address-directory')
             templateUrl: 'contact-list.html'
         });
 }]);
-
-
 </code>
 </pre>
 </section>
@@ -425,18 +409,42 @@ angular.module('address-directory')
 </section>
 
 <section>
+    <h2>ng-route vs ui-router</h2>
+    <ul >
+    <li class="fragment">
+        <h3>ng-route</h3>
+        <ul>
+        <li>Angular Default
+        <li>Erlaubt einfache Routes
+        </ul>
+    </li>
+    <li class="fragment">
+        <h3>ui-router</h3>
+    <ul>
+    <li>Kann verschachtelte Views darstellen und komplexe States abbilden
+    <li>De-facto Standard
+    </ul>
+    </li>
+    </ul>
+    <h3 class="fragment">In diesem Workshop: ui-router only.</h3>
+
+</section>
+
+
+<section>
 <h2>Directives</h2>
 <ul>
-<li>Wiederverwendbare GUI Elemente
-<li>Erweiterte HTML Tags bzw. Web Components (HTML6)
-<li>Darf DOM Manipulationen machen
-<li>Kann HTML Elemente mit neuem Verhalten erweitern
+<li class="fragment">Wiederverwendbare GUI Elemente
+<li class="fragment">Erweiterte HTML Tags bzw. Web Components (HTML6)
+<li class="fragment">Darf DOM Manipulationen machen
+<li class="fragment">Kann HTML Elemente mit neuem Verhalten erweitern
 </ul>
 </section>
 
 
 <section>
 <h2>Beispiele für Direktiven:</h2>
+<div class="fragment">
 <h3>ng-model</h3>
 <pre>
 <code type="html">
@@ -444,7 +452,9 @@ angular.module('address-directory')
 <p>{{ searchTerm }}</p>
 </code>
 </pre>
+</div>
 
+<div class="fragment">
 <h3>ng-class</h3>
 <pre>
 <code type="html">
@@ -453,13 +463,16 @@ ng-class="{'field-error': testForm.searchTerm.$error.required}"
 ng-model="searchTerm"  required />
 </code>
 </pre>
+</div>
 
+<div class="fragment">
 <h3>ng-if</h3>
 <pre>
 <code type="html">
 <p ng-if="isShown">Content goes here.</p>
 </code>
 </pre>
+</div>
 
 </section>
 
@@ -487,9 +500,9 @@ ng-model="searchTerm"  required />
 <h2>Was nicht in den Controller gehört
 </h2>
 <ul>
-<li>DOM manipulieren. In den meisten Fällen wird die View durch Data-Binding manipuliert. Manuelle Änderungen am HTML werden durch Direktiven abgekapselt.
-<li>Output formatieren und filtern. Dazu sind AngularJS Filter da
-<li>State mit anderen Controllern teilen. Dafür gibt es die AngularJS Services
+<li class="fragment"><strong>DOM Manipulation.</strong> In den meisten Fällen wird die View durch Data-Binding manipuliert. Manuelle Änderungen am HTML werden durch Direktiven abgekapselt.
+<li class="fragment"><strong>Output formatieren und filtern.</strong> Dazu sind AngularJS Filter da
+<li class="fragment"><strong>State mit anderen Controllern teilen.</strong> Dafür gibt es die AngularJS Services
 
 </ul>
 </section>
@@ -511,7 +524,7 @@ angular.module('ContactList', [])
 </section>
 
 <section>
-<h2>Controller mit View verbinden</h2>
+<h2>Controller einer View zuweisen</h2>
 <pre>
 <code class="javascript">
 angular.module('ContactList').config(['$stateProvider',
@@ -540,9 +553,10 @@ angular.module('ContactList').config(['$stateProvider',
 
 <h2>Filters</h2>
 <ul>
-<li>Transformiert Objekte im View Template
-<li>Ist Chainable durch den Pipe Separator
+<li class="fragment">Transformiert Objekte im View Template
+<li class="fragment">Ist Chainable durch den Pipe Separator
 </ul>
+<div class="fragment">
 <p>
 Beispiel:
 </p>
@@ -553,6 +567,7 @@ Beispiel:
 </p>
 </code>
 </pre>
+</div>
 
 </section>
 
@@ -651,10 +666,6 @@ $on
 </dl>
 
 </section>
-<section>
-<h2>Scope Vererbung</h2>
-<img src="/img/concepts-scope.png">
-</section>
 
 <section>
 <h2>Scope Isolation</h2>
@@ -665,6 +676,10 @@ $on
 </ul>
 </section>
 
+<section>
+<h2>Scopes</h2>
+<img src="/img/concepts-scope.png">
+</section>
 
 <section>
 <h2>Data Binding</h2>
@@ -680,12 +695,11 @@ $on
 <section>
 <h2>Controller, Scope und controllerAs</h2>
 <p>Es gibt zwei Varianten wie Controller und Scopes eingesetzt werden können.
-<dl><dt>
+<dl><dt class="fragment">
 Standard:</dt>
-<dd> Variablen und Methoden werden direkt auf dem Scope definiert
-<dt>
-'controllerAs'</dt>
-<dd> Syntax: Controller wird als eigenes Objekt an das Scope übergeben. Variablen und Methoden werden auf dem Controller definiert.
+<dd class="fragment">Variablen und Methoden werden direkt auf dem Scope definiert
+<dt class="fragment"> 'controllerAs'</dt>
+<dd class="fragment"> Syntax: Controller wird als eigenes Objekt an das Scope übergeben. Variablen und Methoden werden auf dem Controller definiert.
 </dl>
 </section>
 
@@ -714,10 +728,11 @@ angular.module('address-directory').config(['$stateProvider',
 <section>
 <h2>Vorteile von 'controllerAs'</h2>
 <ul>
-<li>Controller können eindeutig identifiziert werden, wenn es für ein Element mehrere gibt
-<li>Erlaubt es die Controller als Klassen zu nutzen auf deren Properties man in der View Zugriff hat
-<li>Weil immer ein '.' in den Bindings ist, verliert man es bei Direktiven mit isoliertem Scope nicht
+<li class="fragment">Controller können eindeutig identifiziert werden, wenn es für ein Element mehrere gibt
+<li class="fragment">Erlaubt es die Controller als Klassen zu nutzen auf deren Properties man in der View Zugriff hat
+<li class="fragment">Weil immer ein '.' in den Bindings ist, verliert man es bei Direktiven mit isoliertem Scope nicht
 </ul>
+<h3 class="fragment">Empfehlung: controllerAs verwenden</h3>
 </section>
 
 <section data-markdown>
@@ -737,13 +752,10 @@ $stateParams Service stellt die definierten Parameter im Controller zur Verfügu
 
 ``` javascript
 function MyController($stateParams) {
-	this.name = $stateParams.name;
+    this.name = $stateParams.name;
 }
 
 ```
-
-
-
 
 </section>
 
@@ -780,10 +792,10 @@ AngularJS Provider (oder Services) sind Singleton Objekte, die spezifische Funkt
 <section>
 <h2>Provider</h2>
 <ul>
-<li>Parent der anderen Service Typen (ausser Constant)
-<li>Konfigurierbar
-<li>DI Abhängigkeiten im Provider Konstruktor können nur andere Provider oder Constants sein
-<li>Beispiel: $stateProvider, $routeProvider
+<li class="fragment">Parent der anderen Service Typen (ausser Constant)
+<li class="fragment">Konfigurierbar
+<li class="fragment">DI Abhängigkeiten im Provider Konstruktor können nur andere Provider oder Constants sein
+<li class="fragment">Beispiel: $stateProvider, $http
 </ul>
 </section>
 
@@ -887,9 +899,9 @@ angular.module('myApp').value('httpTimeout', 3000);
 <section>
 <h2>Constant</h2>
 <ul>
-<li>Wie Values, aber als DI Abhängigkeiten in der Konfigurationsphase verwendbar
-<li>Ideal für Konfigurationswerte, umgebungsabhängige Variablen usw.
-<li>Good to know: Constants können trotz des Namens geändert werden
+<li class="fragment">Wie Values, aber als DI Abhängigkeiten in der Konfigurationsphase verwendbar
+<li class="fragment">Ideal für Konfigurationswerte, umgebungsabhängige Variablen usw.
+<li class="fragment">Good to know: Constants können trotz des Namens geändert werden
 </ul>
 </section>
 
@@ -1110,51 +1122,51 @@ ng-hide verwenden um gefilterte DOM Elemente
 <h2>Vielen Dank!</h2>
 </section>
 
-			</div>
+            </div>
 
-		</div>
+        </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
 
-		<script>
+        <script>
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
 
 
 var cblocks = document.querySelectorAll("pre code");
-				
-	if(cblocks.length) {
-		for(var i=0, len=cblocks.length; i<len; i++) {
-			var dom = cblocks[i];
-			var html = dom.innerHTML;
-			html = html.replace(/</g,"&lt;").replace(/>/g,"&gt;");
-			dom.innerHTML = html;
-		}
-	}
+                
+    if(cblocks.length) {
+        for(var i=0, len=cblocks.length; i<len; i++) {
+            var dom = cblocks[i];
+            var html = dom.innerHTML;
+            html = html.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+            dom.innerHTML = html;
+        }
+    }
 
-			Reveal.initialize({
-				controls: true,
-				progress: false,
-				history: true,
-				center: true,
+            Reveal.initialize({
+                controls: true,
+                progress: false,
+                history: true,
+                center: true,
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() {
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() {
                      hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+                    { src: 'plugin/notes/notes.js', async: true }
+                ]
+            });
 
-		</script>
+        </script>
 
-	</body>
+    </body>
 </html>
