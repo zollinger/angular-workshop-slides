@@ -286,7 +286,8 @@ html.hands-on body {
   .reveal pre, .reveal code {
     width: 100%;
     margin: 0;
-    display: inline-block; }
+    display: inline-block;
+    border-radius: 5px; }
   .reveal pre code[type="html"] {
     white-space: normal; }
   .reveal .left {
