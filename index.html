@@ -398,9 +398,9 @@ HTML Files:
 angular.module('address-directory')
 .config(['$stateProvider', function($stateProvider) {
     $stateProvider
-        .state('address-list', {
-            url: '/address-list'
-            templateUrl: 'address-list.html'
+        .state('contactList', {
+            url: '/contact-list'
+            templateUrl: 'contact-list.html'
         });
 }]);
 
@@ -412,9 +412,10 @@ angular.module('address-directory')
     <h2>Übung</h2>
     
         <h3>Neue Route für Kontaktliste erstellen. </h3>
-    <ul>
-<li>View Template: address-list.html
-<li>Route: (http://localhost:8088/#/address-list/)
+        <ul>
+    <li>Neues Modul ContactList (analog 'Welcome') erstellen
+    <li>View Template: contact-list.html
+    <li>Route: (http://localhost:8088/#/contact-list/)
 
     </ul>
     <p>
@@ -462,6 +463,79 @@ ng-model="searchTerm"  required />
 
 </section>
 
+<section data-state="hands-on" data-markdown>
+##Übung
+
+* Füge der contact-list View ein Input Feld hinzu.
+* Verwende <code>ng-model</code> um den Input einer Variable zuzuweisen.
+* Gib die Variable auf der Seite aus
+
+### Bonus
+
+* Falls der Input Wert 'spin' ist, soll dem Element eine CSS Klasse mit dem Namen 'spin' hinzugefügt werden (Tipp: ng-class) 
+
+
+
+</section>
+
+<section>
+<h2>Controller</h2>
+<h3>Controller stellen der View Funktionen zur Verfügung und repräsentieren den State der View.</h3>
+</section>
+
+<section>
+<h2>Was nicht in den Controller gehört
+</h2>
+<ul>
+<li>DOM manipulieren. In den meisten Fällen wird die View durch Data-Binding manipuliert. Manuelle Änderungen am HTML werden durch Direktiven abgekapselt.
+<li>Output formatieren und filtern. Dazu sind AngularJS Filter da
+<li>State mit anderen Controllern teilen. Dafür gibt es die AngularJS Services
+
+</ul>
+</section>
+
+<section>
+<h2>Controller definieren</h2>
+<pre>
+<code class="javascript">
+function ContactListController($scope, contacts) {
+    $scope.contacts = contacts;
+}
+
+angular.module('ContactList', [])
+    .controller('ContactListController', 
+                ['$scope', 'contacts', 'ContactListController]);
+
+</code>
+</pre>
+</section>
+
+<section>
+<h2>Controller mit View verbinden</h2>
+<pre>
+<code class="javascript">
+angular.module('ContactList').config(['$stateProvider',
+  function($stateProvider') {
+    $stateProvider'.
+      state('contact-list', {
+        url: '/contact-list',
+        templateUrl: 'contact-list.html'
+        controller: 'ContactListController'
+      });
+  }]);
+</code>
+</pre>
+</section>
+
+<section data-state="hands-on">
+<h2>Übung</h2>
+<ul>
+<li>Erstelle einen neuen Controller 'ContactListController' im Modul ContactList 
+<li>Definiere einen Array mit den Namen der Kontakte 
+<li>Liste diese Namen in der View auf. (siehe: ng-repeat Direktive)
+</ul>
+</section>
+
 <section>
 
 <h2>Filters</h2>
@@ -482,20 +556,22 @@ Beispiel:
 
 </section>
 
-<section data-state="hands-on">
-<h2>Übung</h2>
-<p>Erstelle einen Filter, der den ersten Buchstaben eines Strings immer gross ausgibt.
-</p>
-<p class="small">
+<section data-state="hands-on" data-markdown>
+## Übung
+
+Verwende den AngularJS Filter "filter" um die Kontaktliste nach dem Wert aus Suchfeld zu filtern.
+
+### Bonus
+
+Erstelle einen Filter, der den ersten Buchstaben eines Strings immer gross ausgibt.
+
 Es gibt keine “capitalize” Funktion in Javascript, deshalb hier der Code:
-</p>
-<pre>
-<code type="javascript">
+
+``` javascript
 var myString = 'angular';
 myString.charAt(0).toUpperCase() + myString.substring(1);
 // Prints 'Angular'
-</code>
-</pre>
+```
 </section>
 
 <section>
@@ -533,68 +609,6 @@ myString.charAt(0).toUpperCase() + myString.substring(1);
 <li>Telefonnummer
 </ul>
 <li>Validiere den Namen (required) und die E-Mail (korrekte E-Mail Adresse)
-</ul>
-</section>
-
-<section>
-<h2>Controller</h2>
-<h3>Controller stellen der View Funktionen zur Verfügung und repräsentieren den State der View.</h3>
-</section>
-
-<section>
-<h2>Was nicht in den Controller gehört
-</h2>
-<ul>
-<li>DOM manipulieren. In den meisten Fällen wird die View durch Data-Binding manipuliert. Manuelle Änderungen am HTML werden durch Direktiven abgekapselt.
-<li>Output formatieren und filtern. Dazu sind AngularJS Filter da
-<li>State mit anderen Controllern teilen. Dafür gibt es die AngularJS Services
-
-</ul>
-</section>
-
-<section>
-<h2>Controller definieren</h2>
-<pre>
-<code class="javascript">
-function AddressListController($scope, contacts) {
-    $scope.contacts = contacts;
-}
-
-angular.module('address-directory', [])
-    .controller('AddressListController', 
-                ['$scope', 'contacts', AddressListController]);
-
-</code>
-</pre>
-</section>
-
-<section>
-<h2>Controller mit View verbinden</h2>
-<pre>
-<code class="javascript">
-angular.module('address-directory').config(['$stateProvider',
-  function($stateProvider') {
-    $stateProvider'.
-      state('address-list', {
-        url: '/address-list',
-        templateUrl: 'address-list.html'
-        controller: 'AddressListController',
- resolve: {
-      contacts: ['ContactsService', function(ContactsService) {
-           return ContactsService.fetchContacts();
- }]
-      });
-  }]);
-</code>
-</pre>
-</section>
-
-<section data-state="hands-on">
-<h2>Übung</h2>
-<ul>
-<li>Erstelle einen neuen Controller 'AddressListController' im Modul address-list 
-<li>Definiere einen Array mit den Namen der Kontakte 
-<li>Liste diese Namen in der View auf. (siehe: ng-repeat Direktive)
 </ul>
 </section>
 
@@ -706,10 +720,40 @@ angular.module('address-directory').config(['$stateProvider',
 </ul>
 </section>
 
-<section data-state="hands-on">
-<h2>Übung</h2>
-<p>Erweitere die Adressliste, so das der zuletzt angeklickte Kontakt jeweils oben angezeigt wird
-</p>
+<section data-markdown>
+## URL Parameter (ui-router)
+
+Definition von URL Parametern im State:
+
+``` javascript
+return $stateProvider
+    .state('contactDetail', {
+        url: '/detail/:name'
+        /* ... */
+    });
+```
+
+$stateParams Service stellt die definierten Parameter im Controller zur Verfügung:
+
+``` javascript
+function MyController($stateParams) {
+	this.name = $stateParams.name;
+}
+
+```
+
+
+
+
+</section>
+
+<section data-state="hands-on" data-markdown>
+## Übung
+
+* Erstelle einen Controller für die Detail-View mit controllerAs Notation
+* Verlinke den Kontakt aus der Liste mit der Detailansicht. Verwende dafür die URL Parameter von ui-router.
+* Die Route sollte so aussehen: /detail/:name
+
 </section>
 
 <section>
@@ -860,13 +904,16 @@ angular.module('myApp').constant('apiSettings', {basePath: 'https://myhost/api/'
 </code></pre>
 </section>
 
-<section data-state="hands-on">
-<h2>Übung</h2>
-<p>
-Erstelle einen Provider mit der Methode “fetchContacts” der die Inhalte der Kontaktliste unter /data/contacts.json zurückgibt.
-<br><br>
-Bonus: Mach den Pfad zum JSON File konfigurierbar (AngularJS Constant)
-</p>
+<section data-state="hands-on" data-markdown>
+## Übung
+
+* Erstelle einen Service "ContactsService" mit der Methode “fetchContacts” der die Inhalte der Kontaktliste unter /data/contacts.json zurückgibt.
+* Verwende dafür den Angular Service $http
+* Ersetze die statische Kontaktliste mit der neuen aus dem Service
+
+### Bonus: 
+
+* Mach den Pfad zum JSON File konfigurierbar (AngularJS Constant)
 </section>
 
 <section>
