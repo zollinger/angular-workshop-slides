@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title>AngularJS Foundation</title>
+        <title>AngularJS Foundations</title>
 
         <meta name="author" content="ti&amp;m AG, Stefan Zollinger">
 
@@ -95,6 +95,8 @@
                     <pre>
                         <code class="bash">
 $ git clone https://github.com/matoilic/AngularWorkshop 
+$ cd AngularWorkshop
+$ npm install -g gulp
 $ npm install
 $ gulp
                         </code>
@@ -120,11 +122,12 @@ $ gulp
   "name": "my-package",
   "description": "An example package",
   "version": "0.0.1",
-  "dependencies": {
+  "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-connect": "^2.2.0",
+    "gulp-protractor": "^1.0.0"
   },
-  "devDependencies": {
+  "dependencies": {
     "angular": "^1.4.0",
     "angular-resource": "^1.4.0",
     "angular-ui-router": "^0.2.15",
@@ -148,18 +151,17 @@ Verwaltung mittels NPM CLI
                     <h2>Top Level Struktur</h2>
                     <pre>
                            <code class="bash">
-data/           
-gulpfile.js/   
+data/
 node_modules/
 src/
 .git/
 .gitignore
 .jshintrc
 .editorconfig
+gulpfile.js
 package.json
 protractor.conf.js
-favicon.ico        
-index.html         
+index.html
 
                            </code>
                        </pre>
@@ -381,14 +383,18 @@ HTML Files:
 <h2>Beispiel einer Route:</h2>
 <pre>
 <code type="javascript">
-angular.module('address-directory')
-.config(['$stateProvider', function($stateProvider) {
+
+function contactListState($stateProvider) {
     $stateProvider
         .state('contactList', {
-            url: '/contact-list'
+            url: '/contact-list',
             templateUrl: 'contact-list.html'
         });
-}]);
+}
+
+angular.module('ContactList')
+    .config(['$stateProvider', contactListState]);
+
 </code>
 </pre>
 </section>
@@ -399,7 +405,7 @@ angular.module('address-directory')
         <ul>
     <li>Neues Modul ContactList (analog 'Welcome') erstellen
     <li>View Template: contact-list.html
-    <li>Route: (http://localhost:8088/#/contact-list/)
+    <li>Route: (/contact-list)
 
     </ul>
     <p>
@@ -458,9 +464,7 @@ angular.module('address-directory')
 <h3>ng-class</h3>
 <pre>
 <code type="html">
-<input type="text" name="searchTerm" 
-ng-class="{'field-error': testForm.searchTerm.$error.required}"
-ng-model="searchTerm"  required />
+<p ng-class="{'expanded': textExpanded}">Some content</p>
 </code>
 </pre>
 </div>
@@ -511,13 +515,13 @@ ng-model="searchTerm"  required />
 <h2>Controller definieren</h2>
 <pre>
 <code class="javascript">
-function ContactListController($scope, contacts) {
-    $scope.contacts = contacts;
+function ContactListController($scope, $stateParams) {
+    $scope.contactId = $stateParams.id;
 }
 
 angular.module('ContactList', [])
     .controller('ContactListController', 
-                ['$scope', 'contacts', 'ContactListController]);
+                ['$scope', '$stateParams', ContactListController]);
 
 </code>
 </pre>
@@ -527,15 +531,17 @@ angular.module('ContactList', [])
 <h2>Controller einer View zuweisen</h2>
 <pre>
 <code class="javascript">
-angular.module('ContactList').config(['$stateProvider',
-  function($stateProvider') {
-    $stateProvider'.
-      state('contact-list', {
-        url: '/contact-list',
-        templateUrl: 'contact-list.html'
-        controller: 'ContactListController'
-      });
-  }]);
+function contactListState($stateProvider) {
+  $stateProvider
+    .state('contact-list', {
+      url: '/contact-list',
+      templateUrl: 'contact-list.html',
+      controller: 'ContactListController'
+    });
+}
+
+angular.module('ContactList').config(['$stateProvider', contactListState]);
+
 </code>
 </pre>
 </section>
@@ -589,26 +595,26 @@ myString.charAt(0).toUpperCase() + myString.substring(1);
 ```
 </section>
 
-<section>
-<h2>Formulare &amp; Validierung</h2>
-<pre><code class="html">
-<form name="form" novalidate>
-    E-mail:
-    <input type="email" ng-model="user.email" 
-      name="fieldEmail" required />
-    <br />
-    <div ng-show="form.$submitted || form.fieldEmail.$touched">
-      <span ng-show="form.fieldEmail.$error.required">
-        Tell us your email.
-        </span>
-      <span ng-show="form.fieldEmail.$error.email">
-        This is not a valid email.
-        </span>
-    </div>
-   <button type="submit" ng-disabled="!form.$valid">Submit</button>
-</form>
+<section data-markdown>
+## Formulare & Validierung
 
-</code></pre>
+``` html 
+&lt;form name="form" novalidate&gt;
+    E-mail:
+    &lt;input type="email" ng-model="user.email" 
+      name="fieldEmail" required /&gt;
+    &lt;br /&gt;
+    &lt;div ng-show="form.$submitted || form.fieldEmail.$touched"&gt;
+      &lt;span ng-show="form.fieldEmail.$error.required"&gt;
+        Tell us your email.
+        &lt;/span&gt;
+      &lt;span ng-show="form.fieldEmail.$error.email"&gt;
+        This is not a valid email.
+        &lt;/span&gt;
+    &lt;/div&gt;
+   &lt;button type="submit" ng-disabled="!form.$valid"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+```
 
 </section>
 
@@ -677,11 +683,6 @@ $on
 </section>
 
 <section>
-<h2>Scopes</h2>
-<img src="/img/concepts-scope.png">
-</section>
-
-<section>
 <h2>Data Binding</h2>
 <dl>
 <dt>View</dt>
@@ -708,12 +709,15 @@ Standard:</dt>
 <p>Route Definition:</p>
 <pre>
 <code type="javascript">
-angular.module('address-directory').config(['$stateProvider',
-  function($stateProvider') {
-    $stateProvider'.
-      state('address-list', {
-        controller: 'AddressListController as addressList'
-  }]);
+function contactListState($stateProvider) {
+  $stateProvider
+    .state('contact-list', {
+      templateUrl: 'contact-list.html',
+      controller: 'ContactListController as contactList'
+    });
+}
+
+angular.module('ContactList').config(['$stateProvider', contactListState]);
 </code>
 </pre>
 <p>View:</p>
@@ -741,7 +745,7 @@ angular.module('address-directory').config(['$stateProvider',
 Definition von URL Parametern im State:
 
 ``` javascript
-return $stateProvider
+$stateProvider
     .state('contactDetail', {
         url: '/detail/:name'
         /* ... */
@@ -802,22 +806,22 @@ AngularJS Provider (oder Services) sind Singleton Objekte, die spezifische Funkt
 <section>
 <h2>Provider Beispiel</h2>
 <pre><code class="javascript">
-myApp.provider('myProvider', function() {
-
+function MyProvider() {
   return {
     $get: function() {
       var timeout = 8000; // Private variable
       function getTimeout() {
         return timeout;
       }
-
       return {
         variable: 'This is public',
         getTimeout: getTimeout
       };
     }
   };
-});
+}
+
+angular.module('SomeModule').provider('MyProvider', MyProvider);
 
 </code></pre>
 </section>
@@ -825,7 +829,7 @@ myApp.provider('myProvider', function() {
 <section>
 <h2>Provider Beispiel (konfigurierbar)</h2>
 <pre><code class="javascript">
-app.provider('myConfigurableProvider', function() {
+function MyConfigurableProvider() {
   var timeout = 8000;
 
   return {
@@ -836,11 +840,11 @@ app.provider('myConfigurableProvider', function() {
         /* same as last slide*/
     }
   };
-});
+}
 /* … */
-app.config(function(myConfigurableProvider) {
-  myConfigurableProvider.setTimeout(5000);
-});
+app.config(['myConfigurableProvider', function(MyConfigurableProvider) {
+  MyConfigurableProvider.setTimeout(5000);
+}]);
 
 </code></pre>
 </section>
@@ -855,8 +859,9 @@ app.config(function(myConfigurableProvider) {
 <section>
 <h2>Factory Beispiel</h2>
 <pre><code class="javascript">
-app.factory('myService', function() {
+function TestFactory() {
   var thisIsPrivate = 'Private';
+
   function getPrivate() {
     return thisIsPrivate;
   }
@@ -865,7 +870,10 @@ app.factory('myService', function() {
     variable: 'This is public',
     getPrivate: getPrivate
   };
-});
+}
+
+angular.module('SomeModule').factory('TestFactory', TestFactory);
+
 </code></pre>
 </section>
 
@@ -878,13 +886,16 @@ app.factory('myService', function() {
 <section>
 <h2>Service Beispiel</h2>
 <pre><code class="javascript">
-app.service('foo', function() {
+
+function TestService() {
   var thisIsPrivate = 'Private';
   this.variablea= 'This is public';
   this.getPrivate = function() {
     return thisIsPrivate;
   };
-});
+}
+
+angular.module('SomeModule').service('TestService', TestService);
 </code></pre>
 </section>
 
@@ -908,10 +919,15 @@ angular.module('myApp').value('httpTimeout', 3000);
 <section>
 <h2>Constant Beispiel</h2>
 <pre><code class="javascript">
-angular.module('myApp').constant('apiBasePath', 'https://myhost/api/v1/');
+angular.module('SomeModule')
+  .constant('apiBasePath', 'https://myhost/api/v1/');
 
 // Wert kann auch ein Javascript Objekt sein:
-angular.module('myApp').constant('apiSettings', {basePath: 'https://myhost/api/', version: 'v1'  });
+angular.module('SomeModule')
+  .constant('apiSettings', {
+    basePath: 'https://myhost/api/', 
+    version: 'v1'
+  });
 
 </code></pre>
 </section>
