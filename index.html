@@ -974,9 +974,9 @@ webdriver-manager start
 describe('Angular Workshop Address Book', function() {
   it('should show a contact detail page when a contact was selected', function() {
     browser.get('http://localhost:8088/');
-    element(by.model('contacts').get(1).click();;
+    element(by.model('contacts')).get(1).click();
     
-    expect(x).toBe(y);
+    expect(browser.getCurrentUrl()).toContain('/detail/1');
   });
 });
 </code></pre>
@@ -995,23 +995,27 @@ Erstelle einen Protractor Test, der sicher stellt, dass die Kontaktliste korrekt
 
 <section>
 <h2>Directive Definition Object</h2>
-<pre><code class="javascript small">
-myModule.directive('directiveName', function factory(injectables) {
+<pre><code class="javascript " style="font-size: .9em; line-height: 1em;">
+function testDirective(injectables) {
   var directiveDefinitionObject = {
     priority: 0,
+    replace: false,
     template: '<div></div>',
     transclude: false,
     restrict: 'A',
-    scope: false,a
+    scope: false,
     controller: function($scope, $element, $attrs, $transclude, otherInjectables) { ... },
     controllerAs: 'stringIdentifier',
     bindToController: false,
     require: 'siblingDirectiveName', // or // ['^parentDirectiveName', '?optionalDirectiveName', '?^optionalParent'],
-    compile: function compile(tElement, tAttrs, transclude) {
-    }
+    compile: function compile(tElement, tAttrs, transclude) {},
+    link: function($scope, tElement, tAttrs, controllers, transclude) {}
   };
   return directiveDefinitionObject;
-});
+}
+
+angular.module('myApp')
+  .directive('testDirective', testDirective);
 </code></pre>
 
 </section>
@@ -1031,7 +1035,7 @@ scope: {
 <section>
 <h2>Beispiel Direktive</h2>
 <pre><code class="javascript ">
-myModule.directive('mouseInteraction', function factory(injectables) {
+function mouseInteractionDirective(injectables) {
   var mouseInteractionDirective = {
     template: '<div></div>',
     restrict: 'A',
@@ -1039,16 +1043,14 @@ myModule.directive('mouseInteraction', function factory(injectables) {
             element.bind('click', function () {
                 element.html('You clicked me!');
             });
-            element.bind('mouseenter', function () {
-                element.css('background-color', 'yellow');
-            });
-            element.bind('mouseleave', function () {
-                element.css('background-color', 'white');
-            });
         }
  };
   return mouseInteractionDirective;
-});
+}
+
+angular.module('myApp')
+  .directive('mouseInteraction', mouseInteractionDirective);
+
 </code></pre>
 </section>
 
@@ -1070,21 +1072,103 @@ API Robohash:
 </p>
 </section>
 
+<section data-markdown>
+
+## $http
+
+### HTTP Methoden
+
+- get()
+- post()
+- put()
+- delete()
+
+Return value: Promise
+
+</section>
+
+<section data-markdown>
+
+## $http Custom Headers 
+
+```javacript 
+angular.module('myApp').run(function($http) {
+  $http.defaults.headers.common.Authorization = 'Basic IVxfcIKfib341';
+});
+```
+
+</section>
+
+<section data-markdown>
+## Promise API
+
+```javascript
+var promise = $http.get('/someService');
+
+promise
+  .then(successCallback, errorCallback, notifyCallback)
+  .catch(errorCallback)
+  .finally(callback);
+
+```
+</section>
+
+<section data-markdown>
+## Promise Chaining
+
+``` javascript
+function filterTemperatures(input) {
+  input.map(function(element){ 
+    return element.temperature;
+  });
+}
+
+function calculateAverage(numbers) {
+  return numbers.reduce(function(a, b){ return a+b;}) / numbers.length;
+}
+
+$http.get('/weatherService')
+  .then(filterTemperatures)
+  .then(calculateAverage)
+  .then(function(result){
+    console.log('Average is: ' + result);
+  });
+
+```
+</section>
+
+<section>
+<h2>
+AngularJS in Grossprojekten
+</h2>
+
+<ul>
+<li class="fragment">Struktur
+<li class="fragment">Tooling: SystemJS, ES6 (via BabelJS), Unit Testing, e2e Testing 
+<li class="fragment">Log service
+<li class="fragment">Continuous Integration 
+<li class="fragment">Maven Integration (z.B. frontend-maven-plugin)
+<li class="fragment">ngdoc / jsdoc</ul>
+</section>
+
 <section>
 <h2>Performance</h2>
 </section>
 
-<section>
-<h2>Performance Tipps Produktionsumgebung</h2>
-<pre><code>
+<section data-markdown>
+## Performance Tipps Produktionsumgebung
 
+``` javascript
 angular.module('myApp')
     .config(['$logProvider','$compileProvider',function($logProvider, $compileProvider){
     $logProvider.debugEnabled(false);
     $compileProvider.debugInfoEnabled(false);
 }]);
+```
+Note:
+$logProvider: Log Messages abschalten in Prod
+$compileProvider: Unnötige CSS Klassen und Debug Infos entfernen
 
-</code></pre>
 </section>
 
 <section>
@@ -1095,21 +1179,18 @@ Definiere wie oft ein $digest Cycle getriggert wird<br><br>
 <strong>ng-model-options</strong>
 </p>
 <pre><code>
-{
-  'updateOn': blur',
-  'debounce': {
-    'default': 500, 
-    'blur': 0
-  }
-}
-
+<input  
+   ng-model="user.name"
+   ng-model-options="{ updateOn: 'blur' }"
+   type="text"
+   />
 </code></pre>
 </section>
 <section>
 
 <h2>Performance Tipps für Data-Bindings</h2>
 <p>
-<strong>Two-way binding nur verwenden wo es wirklich nötig ist. 
+<strong>Two-way Binding nur verwenden, wo es wirklich nötig ist. 
 </strong>
 <br><br>
 Ansonsten:

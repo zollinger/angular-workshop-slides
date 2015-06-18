@@ -128,9 +128,12 @@ section {
   }
 }
 
+section.splash {
+  height: 680px;
+}
 
 .splash {
-    height: 100%;
+  
     h1,
     h2,
     h3,
@@ -140,6 +143,7 @@ section {
         text-align: left;
     }
     h1 {
+      padding-top: 1em;
         font-size: 2em;
     }
     h2 {
@@ -152,4 +156,8 @@ pre {
 }
 }
 
+
+.print-pdf .reveal section.splash {
+  height: 720px;
+}
 

@@ -319,15 +319,19 @@ html.hands-on body {
       margin-right: 1em;
       padding: 0;
       float: left; }
-  .reveal .splash {
-    height: 100%; }
-    .reveal .splash h1, .reveal .splash h2, .reveal .splash h3, .reveal .splash p, .reveal .splash a {
-      color: white;
-      text-align: left; }
-    .reveal .splash h1 {
-      font-size: 2em; }
-    .reveal .splash h2 {
-      font-weight: 100 !important;
-      font-size: 2em; }
+  .reveal section.splash {
+    height: 680px; }
+  .reveal .splash h1, .reveal .splash h2, .reveal .splash h3, .reveal .splash p, .reveal .splash a {
+    color: white;
+    text-align: left; }
+  .reveal .splash h1 {
+    padding-top: 1em;
+    font-size: 2em; }
+  .reveal .splash h2 {
+    font-weight: 100 !important;
+    font-size: 2em; }
   .reveal pre {
     box-shadow: none; }
+
+.print-pdf .reveal section.splash {
+  height: 720px; }
