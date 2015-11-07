@@ -43,26 +43,25 @@
                     <h1>AngularJS Foundations</h1>
                     <h2>Workshop</h2>
                     <p>
-                    <small>15. Juni 2015</small>
+                      <img src="img/ng-logo.svg" width="400" />
+                    </p>
+                    <p>
+                      <small>16. November 2015</small>
                     </p>
                     <div class="footer">
-                    <p>
-                    Stefan Zollinger • Emil Effila • Stefano Manco • Mato Illic
-                    </p>
-
-
-                        <ul>
-                            <li>Consulting.</li>
-                            <li>Design.</li>
-                            <li>Agile Projects.</li>
-                            <li>Products.</li>
-                            <li>Innovation Hosting.</li>
-
-                        </ul>
-
-
+                      <p>
+                      Emil Effila • Mato Illic • Stefano Manco • Stefan Zollinger
+                      </p>
+                      <ul>
+                          <li>Consulting.</li>
+                          <li>Design.</li>
+                          <li>Agile Projects.</li>
+                          <li>Products.</li>
+                          <li>Innovation Hosting.</li>
+                      </ul>
                     </div>
                 </section>
+
                 <section>
                     <h2>Warum dieser Kurs?</h2>
                 </section>
@@ -198,6 +197,7 @@ stylesheets/
 
                 <section>
                     <h2>Standard Projektstruktur</h2>
+                    <p>(offizielles AngularJS Tutorial)</p>
                     <pre>
                            <code class="bash">
 /controllers/home-controller.js
@@ -404,8 +404,7 @@ angular.module('ContactList')
 </pre>
 </section>
 <section class="hands-on" data-state="hands-on" >
-    <h2>Übung</h2>
-
+    <h2>Hands-on</h2>
         <h3>Neue Route für Kontaktliste erstellen. </h3>
         <ul>
     <li>Neues Modul ContactList (analog 'Welcome') erstellen
@@ -486,7 +485,7 @@ angular.module('ContactList')
 </section>
 
 <section data-state="hands-on" data-markdown>
-##Übung
+##Hands-on
 
 * Füge der contact-list View ein Input Feld hinzu.
 * Verwende <code>ng-model</code> um den Input einer Variable zuzuweisen.
@@ -564,7 +563,7 @@ Frage: Wo würde man die Zuweisung erwarten?
 </section>
 
 <section data-state="hands-on">
-<h2>Übung</h2>
+<h2>Hands-on</h2>
 <ul>
 <li>Erstelle einen neuen Controller 'ContactListController' im Modul ContactList
 <li>Definiere einen Array mit den Namen der Kontakte
@@ -595,7 +594,7 @@ Beispiel:
 </section>
 
 <section data-state="hands-on" data-markdown>
-## Übung
+## Hands-on
 
 Verwende den AngularJS Filter "filter" um die Kontaktliste nach dem Wert aus Suchfeld zu filtern.
 
@@ -637,7 +636,7 @@ myString.charAt(0).toUpperCase() + myString.substring(1);
 
 
 <section data-state="hands-on">
-<h2>Übung</h2>
+<h2>Hands-on</h2>
 <ul>
 <li>Erstelle eine Detailseite für einen Kontakt
 <li>Formularfelder für
@@ -679,13 +678,28 @@ $on
 </section>
 
 <section>
+
+<h2> System Events</h2>
+
+
+<dl>
+<dt class="fragment">$destroy
+<dd class="fragment">Wenn ein scope zerstört wird.
+</dd>
+<p class="fragment small">(That's it, $destroy ist der einzige...)
+</p>
+</section>
+
+
+<section>
 <h2>Scope Vererbung</h2>
 <dl>
 <dt>$rootScope
 <dd>Parent aller Scopes
 <dd>Alle Scopes erben prototypisch von $rootScope
 <dd><br><br>
-<dd>Wenn die Variable {{ name }} aufgelöst wird, sucht Angular zuerst im aktuellen Scope nach 'name' und falls es nicht vorhanden ist, in der Hierarchie aufwärts bis zum $rootScope
+<dd>Wenn in einem View Template die Variable {{ name }} aufgelöst wird, sucht Angular zuerst im aktuellen Scope nach 'name' und falls es nicht vorhanden ist, in der Hierarchie aufwärts bis zum $rootScope
+
 </dl>
 
 </section>
@@ -710,6 +724,26 @@ $on
 <dd>Angular kümmert sich automatisch um die Synchronisation zwischen den Daten in HTML und JavaScript und zwar in beide Richtungen. Falls etwas in JS geändert wird, zieht es Angular für das HTML nach und umgekehrt.
 </dl>
 </section>
+
+<section data-markdown>
+
+## Hinter dem Data Binding: Digest Loop
+
+- Für jedes Objekt, das in einer View verwendet wird wird eine Watch Funktion in die Watch-List gesetzt
+- Sobald der Wert des Objektes ändert, wird ein $digest Cycle ausgelöst
+- Im $digest Cycle werden alle Objekte auf Änderungen geprüft. Falls es Änderungen gab, wird der Cycle erneut ausgeführt, bis es keine mehr gibt.  
+- Anschliessend werden die Views gerendert
+
+</section>
+
+<section data-markdown>
+## TODO: Beispiel Digest-Loop:
+
+- Binding mit ng-model / Input
+- $apply() mit ng-click Button
+</section>
+
+
 <section>
 <h2>Controller, Scope und controllerAs</h2>
 <p>Es gibt zwei Varianten wie Controller und Scopes eingesetzt werden können.
@@ -783,7 +817,7 @@ class MyController{
 </section>
 
 <section data-state="hands-on" data-markdown>
-## Übung
+## Hands-on
 
 * Erstelle einen Controller für die Detail-View mit controllerAs Notation
 * Verlinke den Kontakt aus der Liste mit der Detailansicht. Verwende dafür die URL Parameter von ui-router.
@@ -961,7 +995,7 @@ angular.module('SomeModule')
 </section>
 
 <section data-state="hands-on" data-markdown>
-## Übung
+## Hands-on
 
 * Erstelle einen Service "ContactsService" mit der Methode “fetchContacts” der die Inhalte der Kontaktliste unter /data/contacts.json zurückgibt.
 * Verwende dafür den Angular Service $http
@@ -996,6 +1030,18 @@ webdriver-manager start
 
 </section>
 
+<section data-markdown>
+## Protractor
+
+- Jasmine based (Syntax)
+- Selenium Server
+- AngularJS spezifische Hilfsfunktionen wie 
+ - by.model()
+ - by.binding()
+ - by.id()
+
+</section>
+
 <section>
 <h2>Beispiel Protractor Test</h2>
 <pre><code class="javascript">
@@ -1011,10 +1057,15 @@ describe('Angular Workshop Address Book', function() {
 </section>
 
 
-<section data-state="hands-on">
-<h2>Übung</h2>
-<p>
+<section data-state="hands-on" data-markdown>
+## Hands-on 
+
 Erstelle einen Protractor Test, der sicher stellt, dass die Kontaktliste korrekt gefiltert wird.
+
+### Bonus
+
+Teste zusätzlich, dass der Klick auf einen Kontakt die korrekte Detailseite aufruft.
+
 </section>
 
 <section>
@@ -1082,13 +1133,19 @@ angular.module('myApp')
 </code></pre>
 </section>
 
-<section>
-<h2>Laufzeit von Direktiven</h2>
-<img src="/img/directive-runtime.png">
+<section data-markdown>
+## Laufzeit von Direktiven
+
+1. Browser parst HTML
+2. AngularJS identfiziert alle Direktiven für ein HTML Element
+3. Direktiven werden nach Priorität (priority) sortiert 
+4. Die compile() Funktion jeder Direktive wird aufgerufen
+5. Kompilierte Templates werden in die DOM eingefügt und link() wird aufgerufen
+
 </section>
 
 <section data-state="hands-on">
-<h2>Übung</h2>
+<h2>Hands-on</h2>
 <p>
 In der Kontaktliste soll jeder Kontakt ein automatisch generiertes Profilbild von Robohash.org erhalten.
 Erstelle eine neue Direktive, die Anhand der E-Mail Adresse ein Bild ausgibt.
@@ -1119,7 +1176,7 @@ Return value: Promise
 
 ## $http Custom Headers
 
-```javacript
+```javascript 
 angular.module('myApp').run(function($http) {
   $http.defaults.headers.common.Authorization = 'Basic IVxfcIKfib341';
 });

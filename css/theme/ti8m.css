@@ -1,9 +1,9 @@
-@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
 /**
  * White theme for reveal.js. This is the opposite of the 'black' theme.
  *
  * Copyright (C) 2015 Hakim El Hattab, http://hakim.se
  */
+@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -12,7 +12,7 @@ body {
   background-color: #fff; }
 
 .reveal {
-  font-family: 'Roboto', Helvetica, sans-serif;
+  font-family: "Roboto", Helvetica, sans-serif;
   font-size: 38px;
   font-weight: normal;
   color: #000; }
@@ -22,17 +22,23 @@ body {
   background: #14adaa;
   text-shadow: none; }
 
-.reveal .slides > section, .reveal .slides > section > section {
+.reveal .slides > section,
+.reveal .slides > section > section {
   line-height: 1.3;
   font-weight: inherit; }
 
 /*********************************************
  * HEADERS
  *********************************************/
-.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
   margin: 0 0 20px 0;
   color: #000;
-  font-family: 'Roboto', Helvetica, sans-serif;
+  font-family: "Roboto", Helvetica, sans-serif;
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: normal;
@@ -63,17 +69,22 @@ body {
   line-height: 1.3; }
 
 /* Ensure certain elements are never larger than the slide itself */
-.reveal img, .reveal video, .reveal iframe {
+.reveal img,
+.reveal video,
+.reveal iframe {
   max-width: 95%;
   max-height: 95%; }
 
-.reveal strong, .reveal b {
+.reveal strong,
+.reveal b {
   font-weight: bold; }
 
 .reveal em {
   font-style: italic; }
 
-.reveal ol, .reveal dl, .reveal ul {
+.reveal ol,
+.reveal dl,
+.reveal ul {
   display: inline-block;
   text-align: left;
   margin: 0 0 0 1em; }
@@ -90,7 +101,10 @@ body {
 .reveal ul ul ul {
   list-style-type: circle; }
 
-.reveal ul ul, .reveal ul ol, .reveal ol ol, .reveal ol ul {
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
   display: block;
   margin-left: 40px; }
 
@@ -100,7 +114,8 @@ body {
 .reveal dd {
   margin-left: 40px; }
 
-.reveal q, .reveal blockquote {
+.reveal q,
+.reveal blockquote {
   quotes: none; }
 
 .reveal blockquote {
@@ -113,7 +128,8 @@ body {
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2); }
 
-.reveal blockquote p:first-child, .reveal blockquote p:last-child {
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
   display: inline-block; }
 
 .reveal q {
@@ -151,15 +167,18 @@ body {
 .reveal table th {
   font-weight: bold; }
 
-.reveal table th, .reveal table td {
+.reveal table th,
+.reveal table td {
   text-align: left;
   padding: 0.2em 0.5em 0.2em 0.5em;
   border-bottom: 1px solid; }
 
-.reveal table th[align="center"], .reveal table td[align="center"] {
+.reveal table th[align="center"],
+.reveal table td[align="center"] {
   text-align: center; }
 
-.reveal table th[align="right"], .reveal table td[align="right"] {
+.reveal table th[align="right"],
+.reveal table td[align="right"] {
   text-align: right; }
 
 .reveal table tr:last-child td {
@@ -186,32 +205,30 @@ body {
 .reveal a {
   color: #004d9f;
   text-decoration: none;
-  -webkit-transition: color 0.15s ease;
-  -moz-transition: color 0.15s ease;
-  transition: color 0.15s ease; }
+  -webkit-transition: color .15s ease;
+  -moz-transition: color .15s ease;
+  transition: color .15s ease; }
 
 .reveal a:hover {
-  color: #0076eb;
+  color: #0072eb;
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #002952; }
+  background: #002852; }
 
 /*********************************************
  * IMAGES
  *********************************************/
 .reveal section img {
   margin: 15px 0px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #000;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+ }
 
 .reveal a img {
-  -webkit-transition: all 0.15s linear;
-  -moz-transition: all 0.15s linear;
-  transition: all 0.15s linear; }
+  -webkit-transition: all .15s linear;
+  -moz-transition: all .15s linear;
+  transition: all .15s linear; }
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
@@ -221,29 +238,33 @@ body {
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
-.reveal .controls div.navigate-left, .reveal .controls div.navigate-left.enabled {
+.reveal .controls div.navigate-left,
+.reveal .controls div.navigate-left.enabled {
   border-right-color: #004d9f; }
 
-.reveal .controls div.navigate-right, .reveal .controls div.navigate-right.enabled {
+.reveal .controls div.navigate-right,
+.reveal .controls div.navigate-right.enabled {
   border-left-color: #004d9f; }
 
-.reveal .controls div.navigate-up, .reveal .controls div.navigate-up.enabled {
+.reveal .controls div.navigate-up,
+.reveal .controls div.navigate-up.enabled {
   border-bottom-color: #004d9f; }
 
-.reveal .controls div.navigate-down, .reveal .controls div.navigate-down.enabled {
+.reveal .controls div.navigate-down,
+.reveal .controls div.navigate-down.enabled {
   border-top-color: #004d9f; }
 
 .reveal .controls div.navigate-left.enabled:hover {
-  border-right-color: #0076eb; }
+  border-right-color: #0072eb; }
 
 .reveal .controls div.navigate-right.enabled:hover {
-  border-left-color: #0076eb; }
+  border-left-color: #0072eb; }
 
 .reveal .controls div.navigate-up.enabled:hover {
-  border-bottom-color: #0076eb; }
+  border-bottom-color: #0072eb; }
 
 .reveal .controls div.navigate-down.enabled:hover {
-  border-top-color: #0076eb; }
+  border-top-color: #0072eb; }
 
 /*********************************************
  * PROGRESS BAR
@@ -275,7 +296,10 @@ html.hands-on body {
   color: white; }
   html.hands-on body .reveal {
     color: white; }
-    html.hands-on body .reveal h1, html.hands-on body .reveal h2, html.hands-on body .reveal h3, html.hands-on body .reveal p {
+    html.hands-on body .reveal h1,
+    html.hands-on body .reveal h2,
+    html.hands-on body .reveal h3,
+    html.hands-on body .reveal p {
       color: white; }
 
 .light {
@@ -293,7 +317,7 @@ html.hands-on body {
   .reveal .left {
     text-align: left; }
   .reveal .small {
-    font-size: 0.7em; }
+    font-size: .7em; }
   .reveal section img {
     border: 0;
     box-shadow: none; }
@@ -303,14 +327,14 @@ html.hands-on body {
     left: 0;
     bottom: 1em;
     text-align: left;
-    font-size: 0.6em;
+    font-size: .6em;
     width: 100%;
     background: url(/img/logo_white.png) right 1.2em no-repeat;
     background-size: auto 60%; }
     .reveal .footer p {
-      margin-bottom: 0.3em; }
+      margin-bottom: .3em; }
     .reveal .footer ul {
-      opacity: 0.5;
+      opacity: .5;
       margin: 0;
       padding: 0;
       list-style-type: none; }
@@ -321,7 +345,11 @@ html.hands-on body {
       float: left; }
   .reveal section.splash {
     height: 680px; }
-  .reveal .splash h1, .reveal .splash h2, .reveal .splash h3, .reveal .splash p, .reveal .splash a {
+  .reveal .splash h1,
+  .reveal .splash h2,
+  .reveal .splash h3,
+  .reveal .splash p,
+  .reveal .splash a {
     color: white;
     text-align: left; }
   .reveal .splash h1 {
