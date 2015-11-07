@@ -60,7 +60,7 @@
 
                         </ul>
 
-                        
+
                     </div>
                 </section>
                 <section>
@@ -80,10 +80,11 @@
 
                 <section>
                     <h2>Ziele</h2>
-                    <li class="fragment">Guidelines und Struktur geben
-                    <li class="fragment">AngularJS Konzepte und deren Anwendungen klären
-                    <li class="fragment">"Magische" Teile von AngularJS durchleuchten
-
+                    <ul>
+                      <li class="fragment">Guidelines und Struktur geben
+                      <li class="fragment">AngularJS Konzepte und deren Anwendungen klären
+                      <li class="fragment">"Magische" Teile von AngularJS durchleuchten
+                    </ul>
                 </section>
 
 
@@ -94,7 +95,7 @@
                     </p>
                     <pre>
                         <code class="bash">
-$ git clone https://github.com/matoilic/AngularWorkshop 
+$ git clone https://github.com/matoilic/AngularWorkshop
 $ cd AngularWorkshop
 $ npm install -g gulp
 $ npm install
@@ -250,7 +251,7 @@ stylesheets/
                         <li><strong>test:</strong> Startet Protractor end-to-end Tests
                     </ul>
                     </li>
-                        
+
                     </ul>
 
                 </section>
@@ -319,9 +320,11 @@ angular
 
 <pre class="fragment">
     <code class="javascript">
-function MyService(DependencyA, DependencyB) {
-// Do something with DependencyA
-  DependencyA.doSomething();
+class MyService {
+  constructor(DependencyA, DependencyB) {
+    // Do something with DependencyA
+    DependencyA.doSomething();
+  }
 }
     </code>
 </pre>
@@ -337,7 +340,9 @@ function MyService(DependencyA, DependencyB) {
 
 <pre>
     <code class="javascript">
-function MyService(DependencyA) {};
+class MyService {
+  constructor(DependencyA) { }
+}
 
 angular.module('myApp')
     .service('MyService', ['DependencyA', MyService]);
@@ -346,7 +351,7 @@ angular.module('myApp')
 </pre>
 
 
-                </section>
+</section>
 <section>
 <h2>Tipp: Mit 'ngStrictDi' explizite DI Annotationen forcieren:</h2>
 <pre>
@@ -400,7 +405,7 @@ angular.module('ContactList')
 </section>
 <section class="hands-on" data-state="hands-on" >
     <h2>Übung</h2>
-    
+
         <h3>Neue Route für Kontaktliste erstellen. </h3>
         <ul>
     <li>Neues Modul ContactList (analog 'Welcome') erstellen
@@ -489,7 +494,7 @@ angular.module('ContactList')
 
 ### Bonus
 
-* Falls der Input Wert 'spin' ist, soll dem Element eine CSS Klasse mit dem Namen 'spin' hinzugefügt werden (Tipp: ng-class) 
+* Falls der Input Wert 'spin' ist, soll dem Element eine CSS Klasse mit dem Namen 'spin' hinzugefügt werden (Tipp: ng-class)
 
 
 
@@ -504,23 +509,32 @@ angular.module('ContactList')
 <h2>Was nicht in den Controller gehört
 </h2>
 <ul>
+<li class="fragment"><strong>DOM Manipulation.</strong>
+<li class="fragment"><strong>Output formatieren und filtern.</strong>
+<li class="fragment"><strong>State mit anderen Controllern teilen.</strong>
+
+</ul>
+<aside class="notes">
+
 <li class="fragment"><strong>DOM Manipulation.</strong> In den meisten Fällen wird die View durch Data-Binding manipuliert. Manuelle Änderungen am HTML werden durch Direktiven abgekapselt.
 <li class="fragment"><strong>Output formatieren und filtern.</strong> Dazu sind AngularJS Filter da
 <li class="fragment"><strong>State mit anderen Controllern teilen.</strong> Dafür gibt es die AngularJS Services
 
-</ul>
+</aside>
 </section>
 
 <section>
 <h2>Controller definieren</h2>
 <pre>
 <code class="javascript">
-function ContactListController($scope, $stateParams) {
+class ContactListController {
+  constructor($scope, $stateParams) {
     $scope.contactId = $stateParams.id;
+  }
 }
 
 angular.module('ContactList', [])
-    .controller('ContactListController', 
+    .controller('ContactListController',
                 ['$scope', '$stateParams', ContactListController]);
 
 </code>
@@ -529,7 +543,7 @@ angular.module('ContactList', [])
 
 <section>
 <h2>Controller einer View zuweisen</h2>
-<pre>
+<pre class="fragment">
 <code class="javascript">
 function contactListState($stateProvider) {
   $stateProvider
@@ -544,13 +558,16 @@ angular.module('ContactList').config(['$stateProvider', contactListState]);
 
 </code>
 </pre>
+<aside class="notes">
+Frage: Wo würde man die Zuweisung erwarten? 
+</aside>
 </section>
 
 <section data-state="hands-on">
 <h2>Übung</h2>
 <ul>
-<li>Erstelle einen neuen Controller 'ContactListController' im Modul ContactList 
-<li>Definiere einen Array mit den Namen der Kontakte 
+<li>Erstelle einen neuen Controller 'ContactListController' im Modul ContactList
+<li>Definiere einen Array mit den Namen der Kontakte
 <li>Liste diese Namen in der View auf. (siehe: ng-repeat Direktive)
 </ul>
 </section>
@@ -598,10 +615,10 @@ myString.charAt(0).toUpperCase() + myString.substring(1);
 <section data-markdown>
 ## Formulare & Validierung
 
-``` html 
+``` html
 &lt;form name="form" novalidate&gt;
     E-mail:
-    &lt;input type="email" ng-model="user.email" 
+    &lt;input type="email" ng-model="user.email"
       name="fieldEmail" required /&gt;
     &lt;br /&gt;
     &lt;div ng-show="form.$submitted || form.fieldEmail.$touched"&gt;
@@ -623,7 +640,7 @@ myString.charAt(0).toUpperCase() + myString.substring(1);
 <h2>Übung</h2>
 <ul>
 <li>Erstelle eine Detailseite für einen Kontakt
-<li>Formularfelder für 
+<li>Formularfelder für
 <ul>
 <li>Name
 <li>Email
@@ -755,8 +772,10 @@ $stateProvider
 $stateParams Service stellt die definierten Parameter im Controller zur Verfügung:
 
 ``` javascript
-function MyController($stateParams) {
+class MyController{
+  constructor($stateParams) {
     this.name = $stateParams.name;
+  }
 }
 
 ```
@@ -774,7 +793,7 @@ function MyController($stateParams) {
 
 <section>
 <h2>Provider</h2>
-<p>Was ist ein Provider in AngularJS? 
+<p>Was ist ein Provider in AngularJS?
 </p>
 <p>
 AngularJS Provider (oder Services) sind Singleton Objekte, die spezifische Funktionalitäten zur Verfügung stellen und Applikationslogik enthalten.
@@ -806,19 +825,27 @@ AngularJS Provider (oder Services) sind Singleton Objekte, die spezifische Funkt
 <section>
 <h2>Provider Beispiel</h2>
 <pre><code class="javascript">
+
+class MyProviderService {
+  constructor(timeout) {
+    this.timeout = timeout;
+  }
+
+  getTimeout() {
+    return this.timeout;
+  }
+}
+
 function MyProvider() {
-  return {
-    $get: function() {
-      var timeout = 8000; // Private variable
-      function getTimeout() {
-        return timeout;
-      }
-      return {
-        variable: 'This is public',
-        getTimeout: getTimeout
-      };
-    }
-  };
+  let timeout = 3000;
+
+  this.setTimeout = function (seconds) {
+    timeout = seconds;
+  }
+
+  this.$get = function() {
+    return new MyProviderService(timeout);
+  }
 }
 
 angular.module('SomeModule').provider('MyProvider', MyProvider);
@@ -887,15 +914,16 @@ angular.module('SomeModule').factory('TestFactory', TestFactory);
 <h2>Service Beispiel</h2>
 <pre><code class="javascript">
 
-function TestService() {
-  var thisIsPrivate = 'Private';
-  this.variablea= 'This is public';
-  this.getPrivate = function() {
-    return thisIsPrivate;
-  };
+class HelloService {
+  constructor() {
+    // Do some initialization
+  }
+  sayHello() {
+    console.log('Hello!')
+  }
 }
 
-angular.module('SomeModule').service('TestService', TestService);
+angular.module('SomeModule').service('HelloService', HelloService);
 </code></pre>
 </section>
 
@@ -925,7 +953,7 @@ angular.module('SomeModule')
 // Wert kann auch ein Javascript Objekt sein:
 angular.module('SomeModule')
   .constant('apiSettings', {
-    basePath: 'https://myhost/api/', 
+    basePath: 'https://myhost/api/',
     version: 'v1'
   });
 
@@ -939,7 +967,7 @@ angular.module('SomeModule')
 * Verwende dafür den Angular Service $http
 * Ersetze die statische Kontaktliste mit der neuen aus dem Service
 
-### Bonus: 
+### Bonus:
 
 * Mach den Pfad zum JSON File konfigurierbar (AngularJS Constant)
 </section>
@@ -975,7 +1003,7 @@ describe('Angular Workshop Address Book', function() {
   it('should show a contact detail page when a contact was selected', function() {
     browser.get('http://localhost:8088/');
     element(by.model('contacts')).get(1).click();
-    
+
     expect(browser.getCurrentUrl()).toContain('/detail/1');
   });
 });
@@ -1062,12 +1090,12 @@ angular.module('myApp')
 <section data-state="hands-on">
 <h2>Übung</h2>
 <p>
-In der Kontaktliste soll jeder Kontakt ein automatisch generiertes Profilbild von Robohash.org erhalten. 
-Erstelle eine neue Direktive, die Anhand der E-Mail Adresse ein Bild ausgibt. 
+In der Kontaktliste soll jeder Kontakt ein automatisch generiertes Profilbild von Robohash.org erhalten.
+Erstelle eine neue Direktive, die Anhand der E-Mail Adresse ein Bild ausgibt.
 <br><br>
-API Robohash: 
+API Robohash:
 <pre><code>
-<img ng-src="https://robohash.org/{{ email }}" > 
+<img ng-src="https://robohash.org/{{ email }}" >
 </code></pre>
 </p>
 </section>
@@ -1089,9 +1117,9 @@ Return value: Promise
 
 <section data-markdown>
 
-## $http Custom Headers 
+## $http Custom Headers
 
-```javacript 
+```javacript
 angular.module('myApp').run(function($http) {
   $http.defaults.headers.common.Authorization = 'Basic IVxfcIKfib341';
 });
@@ -1118,19 +1146,17 @@ promise
 
 ``` javascript
 function filterTemperatures(input) {
-  input.map(function(element){ 
-    return element.temperature;
-  });
+  input.map(element => element.temperature);
 }
 
 function calculateAverage(numbers) {
-  return numbers.reduce(function(a, b){ return a+b;}) / numbers.length;
+  return numbers.reduce( (a, b) =>  a + b ) / numbers.length;
 }
 
 $http.get('/weatherService')
   .then(filterTemperatures)
   .then(calculateAverage)
-  .then(function(result){
+  .then((result) => {
     console.log('Average is: ' + result);
   });
 
@@ -1144,9 +1170,9 @@ AngularJS in Grossprojekten
 
 <ul>
 <li class="fragment">Struktur
-<li class="fragment">Tooling: SystemJS, ES6 (via BabelJS), Unit Testing, e2e Testing 
+<li class="fragment">Tooling: SystemJS, ES6 (via BabelJS), Unit Testing, e2e Testing
 <li class="fragment">Log service
-<li class="fragment">Continuous Integration 
+<li class="fragment">Continuous Integration
 <li class="fragment">Maven Integration (z.B. frontend-maven-plugin)
 <li class="fragment">ngdoc / jsdoc</ul>
 </section>
@@ -1179,7 +1205,7 @@ Definiere wie oft ein $digest Cycle getriggert wird<br><br>
 <strong>ng-model-options</strong>
 </p>
 <pre><code>
-<input  
+<input
    ng-model="user.name"
    ng-model-options="{ updateOn: 'blur' }"
    type="text"
@@ -1190,7 +1216,7 @@ Definiere wie oft ein $digest Cycle getriggert wird<br><br>
 
 <h2>Performance Tipps für Data-Bindings</h2>
 <p>
-<strong>Two-way Binding nur verwenden, wo es wirklich nötig ist. 
+<strong>Two-way Binding nur verwenden, wo es wirklich nötig ist.
 </strong>
 <br><br>
 Ansonsten:
@@ -1233,7 +1259,7 @@ ng-hide verwenden um gefilterte DOM Elemente
 
 
 var cblocks = document.querySelectorAll("pre code");
-                
+
     if(cblocks.length) {
         for(var i=0, len=cblocks.length; i<len; i++) {
             var dom = cblocks[i];
