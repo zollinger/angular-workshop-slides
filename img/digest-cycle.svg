@@ -50,14 +50,16 @@
                             <tspan x="84.6430664" y="81.7626775">List</tspan>
                         </text>
                     </g>
-                    <path d="M370,131.984898 L409.386719,131.984898 L409.386719,342.788017 L370,342.788017" id="Line" stroke="#000000" stroke-width="2" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
-                    <path id="Line-decoration-1" d="M380.8,134.984898 L370,131.984898 L380.8,128.984898" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
+                    <path d="M370,152.707031 L409.386719,152.707031 L409.386719,342.788017 L370,342.788017" id="Line" stroke="#000000" stroke-width="2" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+                    <path id="Line-decoration-1" d="M380.8,155.707031 L370,152.707031 L380.8,149.707031" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
                     <path id="Line-decoration-2" d="M380.8,339.788017 L370,342.788017 L380.8,345.788017" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
-                    <path d="M165.386719,342.788017 L126,342.788017 L126,131.984898 L165.386719,131.984898" id="Line" stroke="#000000" stroke-width="2" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+                    <path d="M165.386719,342.788017 L126,342.788017 L126,152.707031 L165.386719,152.707031" id="Line" stroke="#000000" stroke-width="2" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
                     <path id="Line-decoration-1" d="M154.586719,339.788017 L165.386719,342.788017 L154.586719,345.788017" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
-                    <path id="Line-decoration-2" d="M154.586719,134.984898 L165.386719,131.984898 L154.586719,128.984898" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
+                    <path id="Line-decoration-2" d="M154.586719,155.707031 L165.386719,152.707031 L154.586719,149.707031" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
                     <path d="M168.003067,370.730227 L0.988024645,370.730227" id="Line" stroke="#000000" stroke-width="2" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
                     <path id="Line-decoration-1" d="M11.7880246,367.730227 L0.988024645,370.730227 L11.7880246,373.730227" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
+                    <path d="M168.003067,130.730227 L0.988024645,130.730227" id="Line" stroke="#000000" stroke-width="2" stroke-linecap="square" sketch:type="MSShapeGroup"></path>
+                    <path id="Line-decoration-1" d="M157.203067,127.730227 L168.003067,130.730227 L157.203067,133.730227" stroke="#000000" stroke-width="2" stroke-linecap="square"></path>
                 </g>
             </g>
         </g>
