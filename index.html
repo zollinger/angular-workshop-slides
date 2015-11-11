@@ -1,1321 +1,1243 @@
 <!doctype html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
+<head>
+    <meta charset="utf-8">
 
-        <title>AngularJS Foundations</title>
+    <title>AngularJS Foundations</title>
 
-        <meta name="author" content="ti&amp;m AG, Stefan Zollinger">
+    <meta name="author" content="ti&amp;m AG, Stefan Zollinger">
 
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-        <link href='http://fonts.googleapis.com/css?family=Roboto:300,700,400,100' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,700,400,100' rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="css/reveal.css">
-        <link rel="stylesheet" href="css/theme/ti8m.css" id="theme">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/ti8m.css" id="theme">
 
-        <!-- Code syntax highlighting -->
-        <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-        <!-- Printing and PDF exports -->
-        <script>
-            var link = document.createElement( 'link' );
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-            document.getElementsByTagName( 'head' )[0].appendChild( link );
-        </script>
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
 
-        <!--[if lt IE 9]>
-        <script src="lib/js/html5shiv.js"></script>
-        <![endif]-->
-    </head>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
 
-    <body>
+<body>
 
-        <div class="reveal">
+<div class="reveal">
 
-            <div class="slides">
-                <section class="splash">
-                    <h1>AngularJS Foundations</h1>
-                    <h2>Workshop</h2>
-                    <p>
-                      <img src="img/ng-logo.svg" width="400" />
-                    </p>
-                    <p>
-                      <small>16. November 2015</small>
-                    </p>
-                    <div class="footer">
-                      <p>
-                      Emil Effila • Mato Illic • Stefano Manco • Stefan Zollinger
-                      </p>
-                      <ul>
-                          <li>Consulting.</li>
-                          <li>Design.</li>
-                          <li>Agile Projects.</li>
-                          <li>Products.</li>
-                          <li>Innovation Hosting.</li>
-                      </ul>
-                    </div>
-                </section>
+    <div class="slides">
+        <section class="splash">
+            <h1>AngularJS Foundations</h1>
+            <h2>Workshop</h2>
+            <p>
+                <img src="img/ng-logo.svg" width="400" />
+            </p>
+            <p>
+                <small>16. November 2015</small>
+            </p>
+            <div class="footer">
+                <p>
+                    Emil Effila • Mato Illic • Stefano Manco • Stefan Zollinger
+                </p>
+                <ul>
+                    <li>Consulting.</li>
+                    <li>Design.</li>
+                    <li>Agile Projects.</li>
+                    <li>Products.</li>
+                    <li>Innovation Hosting.</li>
+                </ul>
+            </div>
+        </section>
 
-                <section>
-                    <h2>Warum dieser Kurs?</h2>
-                </section>
+        <section>
+            <h2>Warum dieser Kurs?</h2>
+        </section>
 
-                <section>
-                    <h2>
-                        Einstieg in AngularJS ist zwar einfach, aber...
-                    </h2>
-                    <ul>
-                        <li class="fragment">Keine (offiziellen) Konventionen
-<li class="fragment">Viele verschiedene Ansätze im Netz
-<li class="fragment">AngularJS beinhaltet viel <br>  "Magic" der man nicht blind vertrauen sollte
-                    </ul>
-                </section>
+        <section>
+            <h2>
+                Einstieg in AngularJS ist zwar einfach, aber&hellip;
+            </h2>
+            <ul>
+                <li class="fragment">Keine (offiziellen) Konventionen</li>
+                <li class="fragment">Viele verschiedene Ansätze im Netz</li>
+                <li class="fragment">AngularJS beinhaltet viel "Magic" der man nicht blind vertrauen sollte.</li>
+            </ul>
+        </section>
 
-                <section>
-                    <h2>Ziele</h2>
-                    <ul>
-                      <li class="fragment">Guidelines und Struktur geben
-                      <li class="fragment">AngularJS Konzepte und deren Anwendungen klären
-                      <li class="fragment">"Magische" Teile von AngularJS durchleuchten
-                    </ul>
-                </section>
+        <section>
+            <h2>Ziele</h2>
+            <ul>
+                <li class="fragment">Guidelines und Struktur geben.</li>
+                <li class="fragment">AngularJS Konzepte und deren Anwendungen klären.</li>
+                <li class="fragment">"Magische" Teile von AngularJS durchleuchten.</li>
+            </ul>
+        </section>
 
 
-                <section>
-                    <h2>Setup Workshop Projekt</h2>
-                    <p>
-                        Schritte um das Projekt zu installieren:
-                    </p>
-                    <pre>
-                        <code class="bash">
+        <section>
+            <h2>Setup Workshop Projekt</h2>
+            <p>
+                Schritte um das Projekt zu installieren:
+            </p>
+<pre>
+<code class="bash" data-trim>
 $ git clone https://github.com/matoilic/AngularWorkshop
 $ cd AngularWorkshop
 $ npm install -g gulp
 $ npm install
 $ gulp
-                        </code>
-                    </pre>
-                </section>
+</code>
+</pre>
+        </section>
 
-                <section>
-                     <h2>Übersicht Workshop Projekt</h2>
-                     <ul>
-                         <li>Abhängigkeiten
-                         <li>Verzeichnisstrutkur
-                         <li>Build System
-                     </ul>
-                </section>
-                <section>
-                    <h2>Abhängigkeiten (npm)</h2>
-                    <p>
-                    Definiert in package.json:
-                    </p>
-                    <pre>
-                        <code class="json">
+        <section>
+            <h2>Übersicht Workshop Projekt</h2>
+            <ul>
+                <li>Abhängigkeiten</li>
+                <li>Verzeichnisstrutkur</li>
+                <li>Build System</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Abhängigkeiten (npm)</h2>
+            <p>
+                Definiert in package.json:
+            </p>
+<pre>
+<code class="json" data-trim>
 {
-  "name": "my-package",
-  "description": "An example package",
-  "version": "0.0.1",
-  "devDependencies": {
-    "gulp": "^3.8.11",
-    "gulp-connect": "^2.2.0",
-    "gulp-protractor": "^1.0.0"
-  },
-  "dependencies": {
-    "angular": "^1.4.0",
-    "angular-resource": "^1.4.0",
-    "angular-ui-router": "^0.2.15",
-    "normalize.css": "^3.0.3"
-  }
+    "name": "my-package",
+    "description": "An example package",
+    "version": "0.0.1",
+    "devDependencies": {
+        "gulp": "^3.8.11",
+        "gulp-connect": "^2.2.0",
+        "gulp-protractor": "^1.0.0"
+    },
+    "dependencies": {
+        "angular": "^1.4.0",
+        "angular-resource": "^1.4.0",
+        "angular-ui-router": "^0.2.15",
+        "normalize.css": "^3.0.3"
+    }
 }
+</code>
+</pre>
 
-                         </code>
-                     </pre>
+            <aside class="notes">
+                dependencies => Laufzeitabhängigkeiten (z.B. Angular oder Bootstrap)<br>
+                devDependencies => Abhängigkeiten für Entwicklung (z.B. Gulp oder Karma)<br>
+                Verwaltung mittels NPM CLI
+            </aside>
+        </section>
 
-                    <aside class="notes">
-dependencies => Laufzeitabhängigkeiten (z.B. Angular oder Bootstrap)<br>
-devDependencies => Abhängigkeiten für Entwicklung (z.B. Gulp oder Karma)<br>
-Verwaltung mittels NPM CLI
-
-
-                    </aside>
-                </section>
-
-                <section>
-                    <h2>Top Level Struktur</h2>
-                    <pre>
-                           <code class="bash">
-data/
+        <section>
+            <h2>Top Level Struktur</h2>
+<pre>
+<code class="bash" data-trim>
+.git/
 node_modules/
 src/
-.git/
+.editorconfig
 .gitignore
 .jshintrc
-.editorconfig
 gulpfile.js
+index.html
 package.json
 protractor.conf.js
-index.html
+webpack.conf.js
+</code>
+</pre>
 
-                           </code>
-                       </pre>
+            <aside class="notes">
+                - Struktur ist ähnlich bei den meisten modernen Frontend Projekten<br><br>
+                Kurz erklären was warum.
+            </aside>
 
-                       <aside class="notes">
-                           - Struktur ist ähnlich bei den meisten modernen Frontend Projekten<br><br>
-                           Kurz erklären was warum.
-                       </aside>
-
-                </section>
-                <section>
-                    <h2>AngularJS Struktur</h2>
-                    <pre>
-                           <code class="bash">
+        </section>
+        <section>
+            <h2>AngularJS Struktur</h2>
+<pre>
+<code class="bash" data-trim>
 components/
     /address-book/
     /application/
-    /welcome-state/index.js
-               /welcome-state.js
-               /welcome-controller.js
-               /welcome.html
-images/
-stylesheets/
+    /welcome-state
+        /index.js
+        /welcome-state.js
+        /welcome-controller.js
+        /welcome.html
+    images/
+    stylesheets/
+</code>
+</pre>
 
-                           </code>
-                       </pre>
+            <aside class="notes">
+                Kurz erklären was warum.
+            </aside>
 
-                       <aside class="notes">
-                           Kurz erklären was warum.
-                       </aside>
+        </section>
 
-                </section>
-
-                <section>
-                    <h2>Standard Projektstruktur</h2>
-                    <p>(offizielles AngularJS Tutorial)</p>
-                    <pre>
-                           <code class="bash">
-/controllers/home-controller.js
-            /other-controller.js
-            /even-more-controller.js
-/services/home-service.js
-         /other-service.js
-         /3rd-service.js
-/views/home.html
-      /other.html
-      /more-templates.html
-                           </code>
-                       </pre>
-
-                       <p>
-                       <img width="200" height="200" src="http://cdn.meme.am/instances/500x/11541951.jpg">
-                       </p>
-
-
-                </section>
-
-
-                <section>
-                       <h2>
-                       Vorteile fachlicher Aufteilung
-                       </h2>
-                       <ul class="small">
-<li>Besser skalierbar
-<li>Bessere Wartbarkeit, weil Code einfacher zu finden ist
-<li>Oft zusammen verwendete Dateien sind näher beieinander
-<li>Komponenten eines Moduls sind auf einen Blick ersichtlich
-
-</ul>
-
-                </section>
-                <section>
-                    <h2>Build System: Gulp</h2>
-                    <p>
-                        gulpfile.js
-                    </p>
-                    <ul>
-                    <li>
-                    Default Task:
-                    <ul>
-                        <li><strong>connect:</strong> Startet Server</li>
-                        <li><strong>watch:</strong> Überwacht Dateiänderungen und lädt die Seite neu
-                    </ul>
-                    </li>
-                    <li>"test" Task:
-                    <ul>
-                        <li><strong>test:</strong> Startet Protractor end-to-end Tests
-                    </ul>
-                    </li>
-
-                    </ul>
-
-                </section>
-
-                <section>
-                    <h2>AngularJS im Überblick</h2>
-                    <img src="/img/ng-arch.svg">
-                </section>
-
-                <section>
-                    <h2>Module:<br>
-                    Sammlungen von AngularJS Objekten
-                </section>
-
-                <section>
-<h2>Neues Modul definieren:</h2>
+        <section>
+            <h2>Standard Projektstruktur</h2>
+            <p>(offizielles AngularJS Tutorial)</p>
 <pre>
-                           <code class="javascript">
+<code class="bash" data-trim>
+/controllers
+    /home-controller.js
+    /other-controller.js
+    /even-more-controller.js
+/services
+    /home-service.js
+    /other-service.js
+    /3rd-service.js
+/views
+    /home.html
+    /other.html
+    /more-templates.html
+</code>
+</pre>
+
+            <p>
+                <img width="200" height="200" src="http://cdn.meme.am/instances/500x/11541951.jpg">
+            </p>
+
+
+        </section>
+
+
+        <section>
+            <h2>Vorteile fachlicher Aufteilung</h2>
+            <ul class="small">
+                <li>Alle Teile einer Komponente sind unter einem Dach.</li>
+                <li>Komponenten sind einfacher wiederverwendbar.</li>
+                <li>Die Auswirkungen von Code-Änderungen sind besser nachvollziehbar.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Backend</h2>
+            <p>
+                API-Endpoint<br>
+                <a href="https://nameless-sierra-8010.herokuapp.com/api">https://nameless-sierra-8010.herokuapp.com/api</a>
+            </p>
+            <p>
+                API-Browser<br>
+                <a href="https://nameless-sierra-8010.herokuapp.com/explorer">https://nameless-sierra-8010.herokuapp.com/explorer</a>
+            </p>
+        </section>
+
+        <section>
+            <h2>Build System: Gulp</h2>
+
+            <p>gulpfile.js</p>
+
+            <h3>Default-Task</h3>
+
+            <ul>
+                <li><strong>connect</strong> Startet den Entwicklungsserver.</li>
+                <li><strong>watch</strong> Überwacht Dateien und lädt die Seite neu.</li>
+            </ul>
+
+            <h3>&quot;test&quot;-Task</h3>
+
+            <ul>
+                <li><strong>test</strong> Startet Protractor end-to-end Tests.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>AngularJS im Überblick</h2>
+            <img src="/img/ng-arch.svg">
+        </section>
+
+        <section>
+            <h2>Module</h2>
+            <p>Sammlungen von AngularJS Objekten</p>
+        </section>
+
+        <section>
+            <h2>Neues Modul definieren:</h2>
+<pre>
+<code class="javascript" data-trim>
 angular.module('myApp', []);
 </code>
 </pre>
 
-<h2>Modul 'myApp' referenzieren</h2>
+            <h2>Modul 'myApp' referenzieren</h2>
 <pre>
-                           <code class="javascript">
+<code class="javascript" data-trim>
 angular.module('myApp');
 </code>
 </pre>
 
-                </section>
+        </section>
 
-                <section>
-                    <h2>Modul-Laufzeit</h2>
-                    <pre>
-                           <code class="javascript">
+        <section>
+            <h2>Modul-Laufzeit</h2>
+<pre>
+<code class="javascript" data-trim>
 angular
     .module('myModule', ['ui-router'])
     .config(function($stateProvider){})
-        .run(initializationFn)
-        .provider('myProvider', function(){})
-        .controller('myController', '')
-                           </code>
-                       </pre>
-                       <p>
-                       Ablauf
-                       </p>
-                       <ul>
-<li>Modul wird mit Dependency 'ui-router'  initialisiert
-<li>config() wird ausgeführt
-<li>run() wird ausgeführt
+    .run(initializationFn)
+    .provider('myProvider', function(){})
+    .controller('myController', '')
+</code>
+</pre>
+            <p>
+                Ablauf
+            </p>
+            <ul>
+                <li>Modul wird mit Dependency 'ui-router'  initialisiert
+                <li>config() wird ausgeführt
+                <li>run() wird ausgeführt
 
-                       </ul>
-
-
-                </section>
+            </ul>
 
 
-                <section>
-                    <h2>Dependency Injection</h2>
-                    <ul>
-<li class="fragment">Injector bietet einen Weg Module nach Namen zu referenzieren
-                    <li class="fragment">Jede AngularJS App hat einen Injector
-<li class="fragment">Jedes Modul wird nur einmal instanziert
-<li class="fragment">Injector löst Dependencies in Funktionen auf:
-</ul>
+        </section>
+
+
+        <section>
+            <h2>Dependency Injection</h2>
+            <ul>
+                <li class="fragment">Injector bietet einen Weg Module nach Namen zu referenzieren
+                <li class="fragment">Jede AngularJS App hat einen Injector
+                <li class="fragment">Jedes Modul wird nur einmal instanziert
+                <li class="fragment">Injector löst Dependencies in Funktionen auf:
+            </ul>
 
 <pre class="fragment">
-    <code class="javascript">
+<code class="javascript" data-trim>
 class MyService {
-  constructor(DependencyA, DependencyB) {
-    // Do something with DependencyA
-    DependencyA.doSomething();
-  }
-}
-    </code>
-</pre>
-
-
-                </section>
-                <section>
-                    <h2>Dependency Injection</h2>
-                    <ul>
-                    <li><strong>Achtung:</strong> Automatische DI funktioniert nur solange der Code nicht minifiziert ist.
-<li><strong>Besser:</strong> Dependencies explizit angeben:
-</ul>
-
-<pre>
-    <code class="javascript">
-class MyService {
-  constructor(DependencyA) { }
-}
-
-angular.module('myApp')
-    .service('MyService', ['DependencyA', MyService]);
-
-    </code>
-</pre>
-
-
-</section>
-<section>
-<h2>Tipp: Mit 'ngStrictDi' explizite DI Annotationen forcieren:</h2>
-<pre>
-    <code class="html">
-&lt;body ng-app="myApp" ng-strict-di&gt;
-</code>
-</pre>
-
-</section>
-
-<section>
-<h2>Views (Templates)</h2>
-<p>
-HTML Files:
-</p>
-<pre>
-    <code type="html">
-        <h1>Address book</h1>
-
-        <p>
-          Hello World.
-        </p>
-
-    </code>
-</pre>
-</section>
-
-<section>
-    <h2>Routing</h2>
-    <ul>
-    Verbindet HTML Template mit URL</ul>
-</section>
-<section>
-<h2>Beispiel einer Route:</h2>
-<pre>
-<code type="javascript">
-
-function contactListState($stateProvider) {
-    $stateProvider
-        .state('contactList', {
-            url: '/contact-list',
-            templateUrl: 'contact-list.html'
-        });
-}
-
-angular.module('ContactList')
-    .config(['$stateProvider', contactListState]);
-
-</code>
-</pre>
-</section>
-<section class="hands-on" data-state="hands-on" >
-    <h2>Hands-on</h2>
-        <h3>Neue Route für Kontaktliste erstellen. </h3>
-        <ul>
-    <li>Neues Modul ContactList (analog 'Welcome') erstellen
-    <li>View Template: contact-list.html
-    <li>Route: (/contact-list)
-
-    </ul>
-    <p>
-    <img width="200" height="200" src="http://cdn.meme.am/instances/500x/57106019.jpg">
-    </p>
-
-</section>
-
-<section>
-    <h2>ng-route vs ui-router</h2>
-    <ul >
-    <li class="fragment">
-        <h3>ng-route</h3>
-        <ul>
-        <li>Angular Default
-        <li>Erlaubt einfache Routes
-        </ul>
-    </li>
-    <li class="fragment">
-        <h3>ui-router</h3>
-    <ul>
-    <li>Kann verschachtelte Views darstellen und komplexe States abbilden
-    <li>De-facto Standard
-    </ul>
-    </li>
-    </ul>
-    <h3 class="fragment">In diesem Workshop: ui-router only.</h3>
-
-</section>
-
-
-<section>
-<h2>Directives</h2>
-<ul>
-<li class="fragment">Wiederverwendbare GUI Elemente
-<li class="fragment">Erweiterte HTML Tags bzw. Web Components (HTML6)
-<li class="fragment">Darf DOM Manipulationen machen
-<li class="fragment">Kann HTML Elemente mit neuem Verhalten erweitern
-</ul>
-</section>
-
-
-<section>
-<h2>Beispiele für Direktiven:</h2>
-<div class="fragment">
-<h3>ng-model</h3>
-<pre>
-<code type="html">
-<input type="text" name="searchTerm" ng-model="searchTerm"/>
-<p>{{ searchTerm }}</p>
-</code>
-</pre>
-</div>
-
-<div class="fragment">
-<h3>ng-class</h3>
-<pre>
-<code type="html">
-<p ng-class="{'expanded': textExpanded}">Some content</p>
-</code>
-</pre>
-</div>
-
-<div class="fragment">
-<h3>ng-if</h3>
-<pre>
-<code type="html">
-<p ng-if="isShown">Content goes here.</p>
-</code>
-</pre>
-</div>
-
-</section>
-
-<section data-state="hands-on" data-markdown>
-##Hands-on
-
-* Füge der contact-list View ein Input Feld hinzu.
-* Verwende <code>ng-model</code> um den Input einer Variable zuzuweisen.
-* Gib die Variable auf der Seite aus
-
-### Bonus
-
-* Falls der Input Wert 'spin' ist, soll dem Element eine CSS Klasse mit dem Namen 'spin' hinzugefügt werden (Tipp: ng-class)
-
-
-
-</section>
-
-<section>
-<h2>Controller</h2>
-<h3>Controller stellen der View Funktionen zur Verfügung und repräsentieren den State der View.</h3>
-</section>
-
-<section>
-<h2>Was nicht in den Controller gehört
-</h2>
-<ul>
-<li class="fragment"><strong>DOM Manipulation.</strong>
-<li class="fragment"><strong>Output formatieren und filtern.</strong>
-<li class="fragment"><strong>State mit anderen Controllern teilen.</strong>
-
-</ul>
-<aside class="notes">
-
-<li class="fragment"><strong>DOM Manipulation.</strong> In den meisten Fällen wird die View durch Data-Binding manipuliert. Manuelle Änderungen am HTML werden durch Direktiven abgekapselt.
-<li class="fragment"><strong>Output formatieren und filtern.</strong> Dazu sind AngularJS Filter da
-<li class="fragment"><strong>State mit anderen Controllern teilen.</strong> Dafür gibt es die AngularJS Services
-
-</aside>
-</section>
-
-<section>
-<h2>Controller definieren</h2>
-<pre>
-<code class="javascript">
-class ContactListController {
-  constructor($scope, $stateParams) {
-    $scope.contactId = $stateParams.id;
-  }
-}
-
-angular.module('ContactList', [])
-    .controller('ContactListController',
-                ['$scope', '$stateParams', ContactListController]);
-
-</code>
-</pre>
-</section>
-
-<section>
-<h2>Controller einer View zuweisen</h2>
-<pre class="fragment">
-<code class="javascript">
-function contactListState($stateProvider) {
-  $stateProvider
-    .state('contact-list', {
-      url: '/contact-list',
-      templateUrl: 'contact-list.html',
-      controller: 'ContactListController'
-    });
-}
-
-angular.module('ContactList').config(['$stateProvider', contactListState]);
-
-</code>
-</pre>
-<aside class="notes">
-Frage: Wo würde man die Zuweisung erwarten? 
-</aside>
-</section>
-
-<section data-state="hands-on">
-<h2>Hands-on</h2>
-<ul>
-<li>Erstelle einen neuen Controller 'ContactListController' im Modul ContactList
-<li>Definiere einen Array mit den Namen der Kontakte
-<li>Liste diese Namen in der View auf. (siehe: ng-repeat Direktive)
-</ul>
-</section>
-
-<section>
-
-<h2>Filters</h2>
-<ul>
-<li class="fragment">Transformiert Objekte im View Template
-<li class="fragment">Ist Chainable durch den Pipe Separator
-</ul>
-<div class="fragment">
-<p>
-Beispiel:
-</p>
-<pre>
-<code type="html">
-<p>
-  {{ 1434098007198 | date:'shortDate' }}
-</p>
-</code>
-</pre>
-</div>
-
-</section>
-
-<section data-state="hands-on" data-markdown>
-## Hands-on
-
-Verwende den AngularJS Filter "filter" um die Kontaktliste nach dem Wert aus Suchfeld zu filtern.
-
-### Bonus
-
-Erstelle einen Filter, der den ersten Buchstaben eines Strings immer gross ausgibt.
-
-Es gibt keine “capitalize” Funktion in Javascript, deshalb hier der Code:
-
-``` javascript
-var myString = 'angular';
-myString.charAt(0).toUpperCase() + myString.substring(1);
-// Prints 'Angular'
-```
-</section>
-
-<section data-markdown>
-## Formulare & Validierung
-
-``` html
-&lt;form name="form" novalidate&gt;
-    E-mail:
-    &lt;input type="email" ng-model="user.email"
-      name="fieldEmail" required /&gt;
-    &lt;br /&gt;
-    &lt;div ng-show="form.$submitted || form.fieldEmail.$touched"&gt;
-      &lt;span ng-show="form.fieldEmail.$error.required"&gt;
-        Tell us your email.
-        &lt;/span&gt;
-      &lt;span ng-show="form.fieldEmail.$error.email"&gt;
-        This is not a valid email.
-        &lt;/span&gt;
-    &lt;/div&gt;
-   &lt;button type="submit" ng-disabled="!form.$valid"&gt;Submit&lt;/button&gt;
-&lt;/form&gt;
-```
-
-</section>
-
-
-<section data-state="hands-on">
-<h2>Hands-on</h2>
-<ul>
-<li>Erstelle eine Detailseite für einen Kontakt
-<li>Formularfelder für
-<ul>
-<li>Name
-<li>Email
-<li>Telefonnummer
-</ul>
-<li>Validiere den Namen (required) und die E-Mail (korrekte E-Mail Adresse)
-</ul>
-</section>
-
-<section>
-<h2>Scopes</h2>
-<ul>
-<li>Verbindung zwischen Controller und View
-<li>Scope == View Model
-<li>Enthält den State der View
-</ul>
-</section>
-
-<section>
-<h2>Scope-Funktionen</h2>
-<dl>
-<dt>$watch
-<dd>wird bei Veränderungen einer Variable im Scope ausgeführt
-<dt>$emit
-<dd>Sendet einen Event die Hierarchie aufwärts bis zum $rootScope
-<dt>$broadcast
-<dd>sendet einen Event die Hierarchie abwärts vom Sendescope aus
-$on
-</dl>
-</section>
-
-<section>
-<h2>Events</h2>
-<img src="/img/events.svg">
-
-</section>
-
-<section>
-
-<h2> System Events</h2>
-
-
-<dl>
-<dt class="fragment">$destroy
-<dd class="fragment">Wenn ein scope zerstört wird.
-</dd>
-<p class="fragment small">(That's it, $destroy ist der einzige...)
-</p>
-</section>
-
-
-<section>
-<h2>Scope Vererbung</h2>
-<dl>
-<dt>$rootScope
-<dd>Parent aller Scopes
-<dd>Alle Scopes erben prototypisch von $rootScope
-<dd><br><br>
-<dd>Wenn in einem View Template die Variable {{ name }} aufgelöst wird, sucht Angular zuerst im aktuellen Scope nach 'name' und falls es nicht vorhanden ist, in der Hierarchie aufwärts bis zum $rootScope
-
-</dl>
-
-</section>
-
-<section>
-<h2>Scope Isolation</h2>
-<ul>
-<li>Betrifft Direktiven
-<li>Der isolierte Child Scope verändert den Parent Scope nicht (ng-if, ng-switch, ng-repeat, ng-view, ng-include)
-<li> Primitives die an eine Direktive mit isoliertem Scope übergeben werden, verlieren das 2-way Binding
-</ul>
-</section>
-
-<section>
-<h2>Data Binding</h2>
-<dl>
-<dt>View</dt>
-<dd>{{aDate|date:simple}}
-<dt>Controller</dt>
-<dd>$scope.aDate = new Date();
-<dd><br><br>
-<dd>Angular kümmert sich automatisch um die Synchronisation zwischen den Daten in HTML und JavaScript und zwar in beide Richtungen. Falls etwas in JS geändert wird, zieht es Angular für das HTML nach und umgekehrt.
-</dl>
-</section>
-
-<section data-markdown>
-
-## Hinter dem Data Binding: Digest Loop
-
-- Für jedes Objekt, das in einer View verwendet wird wird eine Watch Funktion in die Watch-List gesetzt
-- Sobald der Wert des Objektes ändert, wird ein $digest Cycle ausgelöst
-- Im $digest Cycle werden alle Objekte auf Änderungen geprüft. Falls es Änderungen gab, wird der Cycle erneut ausgeführt, bis es keine mehr gibt.  
-- Anschliessend werden die Views gerendert
-
-</section>
-
-<section data-markdown>
-## TODO: Beispiel Digest-Loop:
-
-- Binding mit ng-model / Input
-- $apply() mit ng-click Button
-</section>
-
-
-<section>
-<h2>Controller, Scope und controllerAs</h2>
-<p>Es gibt zwei Varianten wie Controller und Scopes eingesetzt werden können.
-<dl><dt class="fragment">
-Standard:</dt>
-<dd class="fragment">Variablen und Methoden werden direkt auf dem Scope definiert
-<dt class="fragment"> 'controllerAs'</dt>
-<dd class="fragment"> Syntax: Controller wird als eigenes Objekt an das Scope übergeben. Variablen und Methoden werden auf dem Controller definiert.
-</dl>
-</section>
-
-<section>
-<h2>Beispiel</h2>
-<p>Route Definition:</p>
-<pre>
-<code type="javascript">
-function contactListState($stateProvider) {
-  $stateProvider
-    .state('contact-list', {
-      templateUrl: 'contact-list.html',
-      controller: 'ContactListController as contactList'
-    });
-}
-
-angular.module('ContactList').config(['$stateProvider', contactListState]);
-</code>
-</pre>
-<p>View:</p>
-<pre>
-<code type="html">
-<ul>
-    <li ng-repeat="contact in addressList.contacts">{{ contact.name }}</li>
-</ul>
-</code>
-</pre>
-</section>
-<section>
-<h2>Vorteile von 'controllerAs'</h2>
-<ul>
-<li class="fragment">Controller können eindeutig identifiziert werden, wenn es für ein Element mehrere gibt
-<li class="fragment">Erlaubt es die Controller als Klassen zu nutzen auf deren Properties man in der View Zugriff hat
-<li class="fragment">Weil immer ein '.' in den Bindings ist, verliert man es bei Direktiven mit isoliertem Scope nicht
-</ul>
-<h3 class="fragment">Empfehlung: controllerAs verwenden</h3>
-</section>
-
-<section data-markdown>
-## URL Parameter (ui-router)
-
-Definition von URL Parametern im State:
-
-``` javascript
-$stateProvider
-    .state('contactDetail', {
-        url: '/detail/:name'
-        /* ... */
-    });
-```
-
-$stateParams Service stellt die definierten Parameter im Controller zur Verfügung:
-
-``` javascript
-class MyController{
-  constructor($stateParams) {
-    this.name = $stateParams.name;
-  }
-}
-
-```
-
-</section>
-
-<section data-state="hands-on" data-markdown>
-## Hands-on
-
-* Erstelle einen Controller für die Detail-View mit controllerAs Notation
-* Verlinke den Kontakt aus der Liste mit der Detailansicht. Verwende dafür die URL Parameter von ui-router.
-* Die Route sollte so aussehen: /detail/:name
-
-</section>
-
-<section>
-<h2>Provider</h2>
-<p>Was ist ein Provider in AngularJS?
-</p>
-<p>
-AngularJS Provider (oder Services) sind Singleton Objekte, die spezifische Funktionalitäten zur Verfügung stellen und Applikationslogik enthalten.
-</p>
-</section>
-
-<section>
-<h2>AngularJS Service Typen</h2>
-<ul>
-<li>Provider
-<li>Factory
-<li>Service
-<li>Value
-<li>Constant
-</ul>
-
-</section>
-
-<section>
-<h2>Provider</h2>
-<ul>
-<li class="fragment">Parent der anderen Service Typen (ausser Constant)
-<li class="fragment">Konfigurierbar
-<li class="fragment">DI Abhängigkeiten im Provider Konstruktor können nur andere Provider oder Constants sein
-<li class="fragment">Beispiel: $stateProvider, $http
-</ul>
-</section>
-
-<section>
-<h2>Provider Beispiel</h2>
-<pre><code class="javascript">
-
-class MyProviderService {
-  constructor(timeout) {
-    this.timeout = timeout;
-  }
-
-  getTimeout() {
-    return this.timeout;
-  }
-}
-
-function MyProvider() {
-  let timeout = 3000;
-
-  this.setTimeout = function (seconds) {
-    timeout = seconds;
-  }
-
-  this.$get = function() {
-    return new MyProviderService(timeout);
-  }
-}
-
-angular.module('SomeModule').provider('MyProvider', MyProvider);
-
-</code></pre>
-</section>
-
-<section>
-<h2>Provider Beispiel (konfigurierbar)</h2>
-<pre><code class="javascript">
-function MyConfigurableProvider() {
-  var timeout = 8000;
-
-  return {
-    setTimeout: function(timeoutInMilliseconds) {
-      timeout = timeoutInMilliseconds;
-    },
-    $get: function() {
-        /* same as last slide*/
+    constructor(dependencyA, dependencyB) {
+        // Do something with dependencyA
+        dependencyA.doSomething();
     }
-  };
 }
-/* … */
-app.config(['myConfigurableProvider', function(MyConfigurableProvider) {
-  MyConfigurableProvider.setTimeout(5000);
-}]);
+</code>
+</pre>
+        </section>
+        <section>
+            <h2>Dependency Injection</h2>
+            <ul>
+                <li><strong>Achtung:</strong> Automatische DI funktioniert nur solange der Code nicht minifiziert ist.
+                <li><strong>Besser:</strong> Dependencies explizit angeben:
+            </ul>
 
+<pre>
+<code class="javascript" data-trim>
+class MyService {
+    constructor(DependencyA) { }
+}
+
+angular
+    .module('myApp')
+    .service('MyService', ['DependencyA', MyService]);
+</code>
+</pre>
+
+
+        </section>
+        <section>
+            <h2>Tipp: Mit 'ngStrictDi' explizite DI Annotationen forcieren:</h2>
+<pre>
+<code class="html" data-trim>&lt;body ng-app="myApp" ng-strict-di=&quot;true&quot;&gt;</code>
+</pre>
+
+        </section>
+
+        <section>
+            <h2>Views (Templates)</h2>
+            <p>
+                HTML Files:
+            </p>
+<pre>
+<code type="html" data-trim>
+&lt;div&gt;
+&lt;h1&gt;Address book&lt;/h1&gt;
+&lt;p&gt;
+Hello World.
+&lt;/p&gt;
+&lt;/div&gt;
+</code>
+</pre>
+            <p>
+                Templates müssen immer ein Root-Element besitzen.
+            </p>
+        </section>
+
+        <section>
+            <h2>Routing</h2>
+            <ul>
+                Verbindet HTML Template mit URL</ul>
+        </section>
+        <section>
+            <h2>Beispiel einer Route:</h2>
+<pre>
+<code type="javascript" data-trim>
+function contactListState($stateProvider) {
+    $stateProvider.state('contactList', {
+        url: '/contact-list',
+        templateUrl: 'contact-list.html',
+        resolve: { }
+    });
+}
+
+angular
+    .module('ContactList')
+    .config(['$stateProvider', contactListState]);
+</code>
+</pre>
+        </section>
+        <section>
+            <h2>ng-route vs ui-router</h2>
+            <ul >
+                <li class="fragment">
+                    <h3>ng-route</h3>
+                    <ul>
+                        <li>Angular Default
+                        <li>Erlaubt einfache Routes
+                    </ul>
+                </li>
+                <li class="fragment">
+                    <h3>ui-router</h3>
+                    <ul>
+                        <li>Kann verschachtelte Views darstellen und komplexe States abbilden
+                        <li>De-facto Standard
+                    </ul>
+                </li>
+            </ul>
+            <h3 class="fragment">In diesem Workshop: ui-router only.</h3>
+        </section>
+        <section class="hands-on" data-state="hands-on" >
+            <h2>Hands-on</h2>
+            <h3>Neue Route für Kontaktliste erstellen. </h3>
+            <ul>
+                <li>Neues Modul ContactList (analog 'Welcome') erstellen
+                <li>View Template: contact-list.html
+                <li>Route: (/contact-list)
+
+            </ul>
+            <p>
+                <img width="200" height="200" src="http://cdn.meme.am/instances/500x/57106019.jpg">
+            </p>
+
+        </section>
+
+        <section>
+            <h2>Directives</h2>
+            <ul>
+                <li class="fragment">Wiederverwendbare GUI Elemente
+                <li class="fragment">Erweiterte HTML Tags bzw. Web Components
+                <li class="fragment">Darf DOM Manipulationen machen
+                <li class="fragment">Kann HTML Elemente mit neuem Verhalten erweitern
+            </ul>
+        </section>
+
+
+        <section>
+            <h2>Beispiele für Direktiven:</h2>
+            <div class="fragment">
+                <h3>ng-model</h3>
+<pre>
+<code type="html" data-trim>
+&lt;input type=&quot;text&quot; name=&quot;searchTerm&quot; ng-model=&quot;searchTerm&quot;/&gt;
+&lt;p&gt;{{ searchTerm }}&lt;/p&gt;
+</code>
+</pre>
+            </div>
+
+            <div class="fragment">
+                <h3>ng-class</h3>
+<pre>
+<code type="html" data-trim>
+&lt;p ng-class=&quot;{'expanded': textExpanded}&quot;&gt;Some content&lt;/p&gt;
+</code>
+</pre>
+            </div>
+
+            <div class="fragment">
+                <h3>ng-if</h3>
+<pre>
+<code type="html" data-trim>
+&lt;p ng-if=&quot;myController.isShown&quot;&gt;Content goes here.&lt;/p&gt;
+</code>
+</pre>
+            </div>
+
+        </section>
+
+        <section data-state="hands-on" data-markdown>
+            ##Hands-on
+
+            * Füge der contact-list View ein Input Feld hinzu.
+            * Verwende <code>ng-model</code> um den Input einer Variable zuzuweisen.
+            * Gib die Variable auf der Seite aus
+
+            ### Bonus
+
+            * Falls der Input Wert 'spin' ist, soll dem Element eine CSS Klasse mit dem Namen 'spin' hinzugefügt werden (Tipp: ng-class)
+        </section>
+
+        <section>
+            <h2>Controller</h2>
+            <h3>Controller stellen der View Funktionen zur Verfügung und repräsentieren den State der View.</h3>
+        </section>
+
+        <section>
+            <h2>Was nicht in den Controller gehört
+            </h2>
+            <ul>
+                <li class="fragment"><strong>DOM Manipulation.</strong>
+                <li class="fragment"><strong>Output formatieren und filtern.</strong>
+                <li class="fragment"><strong>State mit anderen Controllern teilen.</strong>
+
+            </ul>
+            <aside class="notes">
+
+                <li class="fragment"><strong>DOM Manipulation.</strong> In den meisten Fällen wird die View durch Data-Binding manipuliert. Manuelle Änderungen am HTML werden durch Direktiven abgekapselt.
+                <li class="fragment"><strong>Output formatieren und filtern.</strong> Dazu sind AngularJS Filter da
+                <li class="fragment"><strong>State mit anderen Controllern teilen.</strong> Dafür gibt es die AngularJS Services
+
+            </aside>
+        </section>
+
+        <section>
+            <h2>Controller definieren</h2>
+<pre>
+<code class="javascript" data-trim>
+class ContactListController {
+    constructor($scope, $stateParams) {
+
+    }
+}
+
+angular
+    .module('ContactList', [])
+    .controller('ContactListController', [
+        '$scope',
+        '$stateParams',
+        ContactListController
+    ]);
+</code>
+</pre>
+        </section>
+
+        <section>
+            <h2>Controller einer View zuweisen</h2>
+<pre class="fragment">
+<code class="javascript" data-trim>
+    function contactListState($stateProvider) {
+        $stateProvider.state('contact-list', {
+            url: '/contact-list',
+            templateUrl: 'contact-list.html',
+            controller: 'ContactListController as contactListController'
+        });
+    }
+
+    angular
+        .module('ContactList')
+        .config(['$stateProvider', contactListState]);
+</code>
+</pre>
+            <aside class="notes">
+                Frage: Wo würde man die Zuweisung erwarten?
+            </aside>
+        </section>
+
+        <section data-state="hands-on">
+            <h2>Hands-on</h2>
+            <ul>
+                <li>Erstelle einen neuen Controller 'ContactListController' im Modul ContactList
+                <li>Definiere einen Array mit den Namen der Kontakte
+                <li>Liste diese Namen in der View auf. (siehe: ng-repeat Direktive)
+            </ul>
+        </section>
+
+        <section>
+
+            <h2>Filter</h2>
+            <ul>
+                <li class="fragment">Transformieren Objekte im View Template
+                <li class="fragment">Sind Chainable durch den Pipe Separator
+            </ul>
+            <div class="fragment">
+                <p>
+                    Beispiel:
+                </p>
+<pre>
+<code type="html" data-trim>
+{{ 1434098007198 | date:'shortDate' }}
+</code>
+</pre>
+            </div>
+
+        </section>
+
+        <section data-state="hands-on" data-markdown>
+            ## Hands-on
+
+            Verwende den AngularJS Filter "filter" um die Kontaktliste nach dem Wert aus Suchfeld zu filtern.
+
+            ### Bonus
+
+            Erstelle einen Filter, der den ersten Buchstaben eines Strings immer gross ausgibt.
+
+            Es gibt keine “capitalize” Funktion in Javascript, deshalb hier der Code:
+
+            ``` javascript
+            var myString = 'angular';
+            myString.charAt(0).toUpperCase() + myString.substring(1);
+            // Prints 'Angular'
+            ```
+        </section>
+
+        <section data-markdown>
+            ## Formulare & Validierung
+            ``` html
+            &lt;form name=&quot;form&quot; novalidate&gt;
+                &lt;p&gt;
+                    &lt;label for=&quot;fieldEmail&quot;&gt;Email&lt;/label&gt;
+                    &lt;input type=&quot;email&quot; ng-model=&quot;user.email&quot;
+                     name=&quot;fieldEmail&quot; id=&quot;fieldEmail&quot; required&gt;
+                &lt;/p&gt;
+                &lt;p ng-show=&quot;form.$submitted || form.fieldEmail.$touched&quot;&gt;
+                    &lt;span ng-show=&quot;form.fieldEmail.$error.required&quot;&gt;Tell us your email.&lt;/span&gt;
+                    &lt;span ng-show=&quot;form.fieldEmail.$error.email&quot;&gt;This is not a valid email.&lt;/span&gt;
+                &lt;/p&gt;
+                &lt;p&gt;
+                    &lt;button type=&quot;submit&quot; ng-disabled=&quot;!form.$valid&quot;&gt;Submit&lt;/button&gt;
+                &lt;/p&gt;
+            &lt;/form&gt;
+            ```
+        </section>
+
+
+        <section data-state="hands-on">
+            <h2>Hands-on</h2>
+            <ul>
+                <li>Erstelle eine Detailseite für einen Kontakt
+                <li>Formularfelder für
+                    <ul>
+                        <li>Name
+                        <li>Email
+                        <li>Telefonnummer
+                    </ul>
+                <li>Validiere den Namen (required) und die E-Mail (korrekte E-Mail Adresse)
+            </ul>
+        </section>
+
+        <section>
+            <h2>Scope-Funktionen</h2>
+            <dl>
+                <dt>$on</dt>
+                <dd>Registriert einen Event-Listener.</dd>
+                <dt>$emit</dt>
+                <dd>Sendet einen Event die Hierarchie aufwärts bis zum $rootScope.</dd>
+                <dt>$broadcast</dt>
+                <dd>Sendet einen Event die Hierarchie abwärts vom der Quelle aus.</dd>
+            </dl>
+        </section>
+
+        <section>
+            <h2>Events</h2>
+            <img src="/img/events.svg">
+        </section>
+
+        <section>
+            <h2>System Events</h2>
+
+            <dl>
+                <dt class="fragment">$destroy</dt>
+                <dd class="fragment">Wenn ein scope zerstört wird.</dd>
+            </dl>
+
+            <p class="fragment small">
+                (That's it, $destroy ist der einzige...)
+            </p>
+        </section>
+
+
+        <section>
+            <h2>Scope Vererbung</h2>
+            <dl>
+                <dt>$rootScope</dt>
+                <dd>Parent aller Scopes.</dd>
+                <dd>Alle Scopes erben prototypisch von $rootScope bzw. Parent-Scope.</dd>
+            </dl>
+        </section>
+
+        <section>
+            <h2>Scope Isolation</h2>
+            <ul>
+                <li>Betrifft Direktiven.</li>
+                <li>Der isolierte Child Scope verändert den Parent Scope nicht (ng-if, ng-switch, ng-repeat, ng-view, ng-include)</li>
+                <li>Primitives die an eine Direktive mit isoliertem Scope übergeben werden, verlieren das 2-way Binding</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Data Binding</h2>
+            <dl>
+                <dt>View</dt>
+                <dd>{{ myController.startDate | date:'simple' }}</dd>
+                <dt>Controller</dt>
+                <dd>this.startDate = new Date();</dd>
+                <dd><br><br></dd>
+                <dd>Angular kümmert sich automatisch um die Synchronisation zwischen den Daten in HTML und JavaScript und zwar in beide Richtungen. Falls etwas in JS geändert wird, zieht es Angular für das HTML nach und umgekehrt.</dd>
+            </dl>
+        </section>
+
+        <section>
+            <h2>Data Binding: Digest Cycle</h2>
+
+            <ul>
+                <li>Für jedes Objekt welches in einer View verwendet wird, wird eine Funktion in die Watch-List hinzugefügt.</li>
+                <li>Sobald der Wert eines Objektes ändert, wird ein $digest Cycle ausgelöst.</li>
+                <li>Im $digest Cycle werden alle Objekte auf Änderungen geprüft. Falls es Änderungen gab, wird der Cycle erneut ausgeführt, bis es keine mehr gibt.</li>
+                <li>Anschliessend werden die Views neu gerendert.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Digest Cycle</h2>
+            <img src="img/digest-cycle.svg">
+        </section>
+
+        <section data-markdown>
+            ## TODO: Beispiel Digest-Loop:
+
+            - Binding mit ng-model / Input
+            - $apply() mit ng-click Button
+        </section>
+
+
+        <section>
+            <h2>Controller, Scope und controllerAs</h2>
+            <p>Es gibt zwei Varianten wie Controller und Scopes eingesetzt werden können.
+            <dl>
+                <dt class="fragment">Standard:</dt>
+                <dd class="fragment">Variablen und Methoden werden direkt auf dem Scope definiert <strong>&#10174; DEATH PENALTY</strong>.</dd>
+                <dt class="fragment">'controllerAs'</dt>
+                <dd class="fragment">Controller wird als eigenes Objekt an den Scope übergeben. Variablen und Methoden werden auf dem Controller definiert. Der Controller agiert als View Model.</dd>
+            </dl>
+        </section>
+
+        <section>
+            <h2>Beispiel</h2>
+            <p>Route Definition:</p>
+<pre>
+<code type="javascript" data-trim>
+function contactListState($stateProvider) {
+    $stateProvider.state('contact-list', {
+        templateUrl: 'contact-list.html',
+        controller: 'ContactListController as contactList'
+    });
+}
+
+angular
+    .module('ContactList')
+    .config(['$stateProvider', contactListState]);
+</code>
+</pre>
+            <p>View:</p>
+<pre>
+<code type="html" data-trim>
+&lt;ul&gt;
+    &lt;li ng-repeat=&quot;contact in addressList.contacts&quot;&gt;{{ contact.name }}&lt;/li&gt;
+&lt;/ul&gt;
+</code>
+</pre>
+        </section>
+        <section>
+            <h2>Vorteile von 'controllerAs'</h2>
+            <ul>
+                <li class="fragment">Einfach nachvollziehbar von wo welche Daten kommen.</li>
+                <li class="fragment">Vereinfachtes Testing von View-Funktionalität.</li>
+                <li class="fragment">Verbesserte Wartbarkeit der Codebasis.</li>
+            </ul>
+            <h3 class="fragment">Empfehlung &#10174; immer controllerAs verwenden.</h3>
+        </section>
+
+        <section data-markdown>
+            ## URL Parameter (ui-router)
+
+            Definition von URL Parametern im State:
+
+            ``` javascript
+            $stateProvider.state('contactDetail', {
+                url: '/detail/:name'
+                /* ... */
+            });
+            ```
+
+            $stateParams Service ermöglicht einen einheitlichen Zugriff auf URL-Parameter:
+
+            ``` javascript
+            class MyController{
+                constructor($stateParams) {
+                    this.name = $stateParams.name;
+                }
+            }
+            ```
+
+        </section>
+
+        <section data-state="hands-on" data-markdown>
+            ## Hands-on
+
+            * Erstelle einen Controller für die Detail-View mit controllerAs Notation.
+            * Verlinke den Kontakt aus der Liste mit der Detailansicht. Verwende dafür die URL Parameter von ui-router.
+            * Die Route sollte so aussehen: /detail/:name
+        </section>
+
+        <section>
+            <h2>Provider</h2>
+            <p>Was ist ein Provider in AngularJS?</p>
+            <p>
+                AngularJS Provider (oder Services) sind Singleton Objekte, die spezifische Funktionalitäten zur
+                Verfügung stellen und Applikationslogik enthalten.
+            </p>
+        </section>
+
+        <section>
+            <h2>AngularJS Provider-Typen</h2>
+            <ul>
+                <li>Provider</li>
+                <li>Factory</li>
+                <li>Service</li>
+                <li>Value</li>
+                <li>Constant</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Provider</h2>
+            <ul>
+                <li class="fragment">Parent der anderen Service Typen (ausser Constant).</li>
+                <li class="fragment">Konfigurierbar.</li>
+                <li class="fragment">DI Abhängigkeiten im Provider Konstruktor können nur andere Provider oder Constants sein.</li>
+                <li class="fragment">Beispiel: $stateProvider, $httpProvider.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Provider Beispiel</h2>
+<pre><code class="javascript" data-trim>
+class MyService { /* ... */ }
+
+function MyServiceProvider() {
+    let timeout = 3000;
+
+    this.setTimeout = function(seconds) {
+        timeout = seconds;
+    };
+
+    this.$get = [function() {
+        return new MyService(timeout); // will only be called once
+    }];
+}
+
+angular.module('SomeModule').provider('MyService', [MyServiceProvider]);
 </code></pre>
-</section>
+        </section>
 
-<section>
-<h2>Factory</h2>
-<p>Wie Provider, aber ohne Konfiguration
-</p>
-</section>
+        <section>
+            <h2>Factory</h2>
+            <p>Wie Provider, aber ohne Konfiguration</p>
+        </section>
 
 
-<section>
-<h2>Factory Beispiel</h2>
-<pre><code class="javascript">
+        <section>
+            <h2>Factory Beispiel</h2>
+<pre><code class="javascript" data-trim>
 function TestFactory() {
-  var thisIsPrivate = 'Private';
+    const thisIsPrivate = 'Private';
 
-  function getPrivate() {
-    return thisIsPrivate;
-  }
+    function getPrivate() {
+        return thisIsPrivate;
+    }
 
-  return {
-    variable: 'This is public',
-    getPrivate: getPrivate
-  };
+    return {
+        variable: 'This is public',
+        getPrivate: getPrivate
+    };
 }
 
-angular.module('SomeModule').factory('TestFactory', TestFactory);
-
+angular.module('SomeModule').factory('TestFactory', [TestFactory]);
 </code></pre>
-</section>
+        </section>
 
-<section>
-<h2>Service</h2>
-<p>Wie Factory, aber anstatt einem Objekt definieren wir eine Funktion, die mit 'new' instanziert wird.
-</p>
-</section>
+        <section>
+            <h2>Service</h2>
+            <p>Wie Factory, aber anstatt einem Objekt definieren wir eine Klasse, die mit 'new' instanziert wird.</p>
+            <p><strong>Empfehlung: Services gegenüber Factories vorziehen.</strong></p>
+        </section>
 
-<section>
-<h2>Service Beispiel</h2>
-<pre><code class="javascript">
-
+        <section>
+            <h2>Service Beispiel</h2>
+<pre><code class="javascript" data-trim>
 class HelloService {
-  constructor() {
-    // Do some initialization
-  }
-  sayHello() {
-    console.log('Hello!')
-  }
+    constructor() {
+        // Do some initialization
+    }
+
+    sayHello() {
+        console.log('Hello!')
+    }
 }
 
-angular.module('SomeModule').service('HelloService', HelloService);
+angular.module('SomeModule').service('HelloService', [HelloService]);
 </code></pre>
-</section>
+        </section>
 
-<section>
-<h2>Value</h2>
-<p>Einfache Werte</p>
-<pre><code class="javascript">
-angular.module('myApp').value('httpTimeout', 3000);
-</code></pre>
-</section>
+        <section>
+            <h2>Value / Constant</h2>
+            <ul>
+                <li class="fragment">Ein Value kann alles sein, String, Date, Array, Number oder Object.</li>
+                <li class="fragment">Ideal um statische Daten zu hinterlegen, welche über mehrere Controller, Services etc. hinweg benötigt werden.</li>
+                <li class="fragment">Constants sind auch innerhalb von config Funktionen verfügbar, Values nicht. Das ist der einzige Unterschied.</li>
+                <li class="fragment">Good to know: Constants können trotz des Namens geändert werden.</li>
+            </ul>
+        </section>
 
-<section>
-<h2>Constant</h2>
-<ul>
-<li class="fragment">Wie Values, aber als DI Abhängigkeiten in der Konfigurationsphase verwendbar
-<li class="fragment">Ideal für Konfigurationswerte, umgebungsabhängige Variablen usw.
-<li class="fragment">Good to know: Constants können trotz des Namens geändert werden
-</ul>
-</section>
-
-<section>
-<h2>Constant Beispiel</h2>
-<pre><code class="javascript">
-angular.module('SomeModule')
-  .constant('apiBasePath', 'https://myhost/api/v1/');
+        <section>
+            <h2>Constant Beispiel</h2>
+<pre><code class="javascript" data-trim>
+angular
+    .module('SomeModule')
+    .constant('apiBaseUrl', 'https://myhost/api/v1/');
 
 // Wert kann auch ein Javascript Objekt sein:
-angular.module('SomeModule')
-  .constant('apiSettings', {
-    basePath: 'https://myhost/api/',
-    version: 'v1'
-  });
-
+angular
+    .module('SomeModule')
+    .constant('apiSettings', {
+        baseUrl: 'https://myhost/api/',
+        apiKey: 'letmein'
+    });
 </code></pre>
-</section>
+        </section>
 
-<section data-state="hands-on" data-markdown>
-## Hands-on
+        <section data-state="hands-on">
+            <h2>Hands-on</h2>
 
-* Erstelle einen Service "ContactsService" mit der Methode “fetchContacts” der die Inhalte der Kontaktliste unter /data/contacts.json zurückgibt.
-* Verwende dafür den Angular Service $http
-* Ersetze die statische Kontaktliste mit der neuen aus dem Service
+            <ul>
+                <li>Erstelle einen Service "ContactsService" mit der Methode “fetchContacts” der die Inhalte der Kontaktliste unter <nobr>https://nameless-sierra-8010.herokuapp.com/api/Contacts</nobr> zurückgibt.</li>
+                <li>Verwende dafür den Angular $http Service.</li>
+                <li>Ersetze die statische Kontaktliste mit der neuen aus dem Service.</li>
+            </ul>
 
-### Bonus:
+            <h3>Bonus</h3>
 
-* Mach den Pfad zum JSON File konfigurierbar (AngularJS Constant)
-</section>
+            <ul>
+                <li>Mach den URL zum API-Endpoint konfigurierbar.</li>
+            </ul>
+        </section>
 
-<section>
-<h2>Testing</h2>
-<ul>
-<li>End to end Testing mit Protractor
-<li>Tests laufen gegen die Applikation im Browser
-<li>Macht das Testen von User Interaktionen möglich
-</ul>
-</section>
+        <section>
+            <h2>Testing</h2>
+            <ul>
+                <li>End to end Testing mit Protractor.</li>
+                <li>Tests laufen gegen die Applikation im Browser.</li>
+                <li>Macht das Testen von User Interaktionen möglich.</li>
+            </ul>
+        </section>
 
-<section>
-<h2>Setup Testing</h2>
-<p>Protractor installieren</p>
-<pre><code class="bash">
+        <section>
+            <h2>Setup Testing</h2>
+            <p>Protractor installieren</p>
+<pre><code class="bash" data-trim>
 npm install -g protractor
 </code></pre>
 
-<p>Selenium installieren &amp; starten</p>
-<pre><code class="bash">
+            <p>Selenium installieren &amp; starten</p>
+<pre><code class="bash" data-trim>
 webdriver-manager update
 webdriver-manager start
 </code></pre>
 
-</section>
+        </section>
 
-<section data-markdown>
-## Protractor
+        <section data-markdown>
+            ## Protractor
 
-- Jasmine based (Syntax)
-- Selenium Server
-- AngularJS spezifische Hilfsfunktionen wie 
- - by.model()
- - by.binding()
- - by.id()
+            - Jasmine basierter Syntax.
+            - Selenium Server zur Fernsteuerung des Browsers.
+            - AngularJS spezifische Hilfsfunktionen wie:
+                - by.model()
+                - by.binding()
+                - by.id()
+        </section>
 
-</section>
-
-<section>
-<h2>Beispiel Protractor Test</h2>
-<pre><code class="javascript">
+        <section>
+            <h2>Beispiel Protractor Test</h2>
+<pre><code class="javascript" data-trim>
 describe('Angular Workshop Address Book', function() {
-  it('should show a contact detail page when a contact was selected', function() {
-    browser.get('http://localhost:8088/');
-    element(by.model('contacts')).get(1).click();
+    it(
+        'should show a contact detail page when a contact was selected',
+        function() {
+            browser.get('http://localhost:8088/');
+            element(by.model('contacts')).get(1).click();
 
-    expect(browser.getCurrentUrl()).toContain('/detail/1');
-  });
-});
-</code></pre>
-</section>
-
-
-<section data-state="hands-on" data-markdown>
-## Hands-on 
-
-Erstelle einen Protractor Test, der sicher stellt, dass die Kontaktliste korrekt gefiltert wird.
-
-### Bonus
-
-Teste zusätzlich, dass der Klick auf einen Kontakt die korrekte Detailseite aufruft.
-
-</section>
-
-<section>
-<h2>Custom Directives</h2>
-</section>
-
-<section>
-<h2>Directive Definition Object</h2>
-<pre><code class="javascript " style="font-size: .9em; line-height: 1em;">
-function testDirective(injectables) {
-  var directiveDefinitionObject = {
-    priority: 0,
-    replace: false,
-    template: '<div></div>',
-    transclude: false,
-    restrict: 'A',
-    scope: false,
-    controller: function($scope, $element, $attrs, $transclude, otherInjectables) { ... },
-    controllerAs: 'stringIdentifier',
-    bindToController: false,
-    require: 'siblingDirectiveName', // or // ['^parentDirectiveName', '?optionalDirectiveName', '?^optionalParent'],
-    compile: function compile(tElement, tAttrs, transclude) {},
-    link: function($scope, tElement, tAttrs, controllers, transclude) {}
-  };
-  return directiveDefinitionObject;
-}
-
-angular.module('myApp')
-  .directive('testDirective', testDirective);
-</code></pre>
-
-</section>
-
-<section>
-<h2>Directive Definition Object: Scope</h2>
-<pre><code class="javascript ">
-scope: {
-   'myProperty': '=',
-   'otherProperty': '&amp;',
-   'someAttribute': '@'
-}
-</code></pre>
-
-</section>
-
-<section>
-<h2>Beispiel Direktive</h2>
-<pre><code class="javascript ">
-function mouseInteractionDirective(injectables) {
-  var mouseInteractionDirective = {
-    template: '<div></div>',
-    restrict: 'A',
-    link: function ($scope, element) {
-            element.bind('click', function () {
-                element.html('You clicked me!');
-            });
+            expect(browser.getCurrentUrl()).toContain('/detail/1');
         }
- };
-  return mouseInteractionDirective;
-}
-
-angular.module('myApp')
-  .directive('mouseInteraction', mouseInteractionDirective);
-
-</code></pre>
-</section>
-
-<section data-markdown>
-## Laufzeit von Direktiven
-
-1. Browser parst HTML
-2. AngularJS identfiziert alle Direktiven für ein HTML Element
-3. Direktiven werden nach Priorität (priority) sortiert 
-4. Die compile() Funktion jeder Direktive wird aufgerufen
-5. Kompilierte Templates werden in die DOM eingefügt und link() wird aufgerufen
-
-</section>
-
-<section data-state="hands-on">
-<h2>Hands-on</h2>
-<p>
-In der Kontaktliste soll jeder Kontakt ein automatisch generiertes Profilbild von Robohash.org erhalten.
-Erstelle eine neue Direktive, die Anhand der E-Mail Adresse ein Bild ausgibt.
-<br><br>
-API Robohash:
-<pre><code>
-<img ng-src="https://robohash.org/{{ email }}" >
-</code></pre>
-</p>
-</section>
-
-<section data-markdown>
-
-## $http
-
-### HTTP Methoden
-
-- get()
-- post()
-- put()
-- delete()
-
-Return value: Promise
-
-</section>
-
-<section data-markdown>
-
-## $http Custom Headers
-
-```javascript 
-angular.module('myApp').run(function($http) {
-  $http.defaults.headers.common.Authorization = 'Basic IVxfcIKfib341';
+    );
 });
-```
-
-</section>
-
-<section data-markdown>
-## Promise API
-
-```javascript
-var promise = $http.get('/someService');
-
-promise
-  .then(successCallback, errorCallback, notifyCallback)
-  .catch(errorCallback)
-  .finally(callback);
-
-```
-</section>
-
-<section data-markdown>
-## Promise Chaining
-
-``` javascript
-function filterTemperatures(input) {
-  input.map(element => element.temperature);
-}
-
-function calculateAverage(numbers) {
-  return numbers.reduce( (a, b) =>  a + b ) / numbers.length;
-}
-
-$http.get('/weatherService')
-  .then(filterTemperatures)
-  .then(calculateAverage)
-  .then((result) => {
-    console.log('Average is: ' + result);
-  });
-
-```
-</section>
-
-<section>
-<h2>
-AngularJS in Grossprojekten
-</h2>
-
-<ul>
-<li class="fragment">Struktur
-<li class="fragment">Tooling: SystemJS, ES6 (via BabelJS), Unit Testing, e2e Testing
-<li class="fragment">Log service
-<li class="fragment">Continuous Integration
-<li class="fragment">Maven Integration (z.B. frontend-maven-plugin)
-<li class="fragment">ngdoc / jsdoc</ul>
-</section>
-
-<section>
-<h2>Performance</h2>
-</section>
-
-<section data-markdown>
-## Performance Tipps Produktionsumgebung
-
-``` javascript
-angular.module('myApp')
-    .config(['$logProvider','$compileProvider',function($logProvider, $compileProvider){
-    $logProvider.debugEnabled(false);
-    $compileProvider.debugInfoEnabled(false);
-}]);
-```
-Note:
-$logProvider: Log Messages abschalten in Prod
-$compileProvider: Unnötige CSS Klassen und Debug Infos entfernen
-
-</section>
-
-<section>
-<h2>Performance Tipps für ng-model</h2>
-<p>
-Definiere wie oft ein $digest Cycle getriggert wird<br><br>
-
-<strong>ng-model-options</strong>
-</p>
-<pre><code>
-<input
-   ng-model="user.name"
-   ng-model-options="{ updateOn: 'blur' }"
-   type="text"
-   />
 </code></pre>
-</section>
-<section>
+        </section>
 
-<h2>Performance Tipps für Data-Bindings</h2>
-<p>
-<strong>Two-way Binding nur verwenden, wo es wirklich nötig ist.
-</strong>
-<br><br>
-Ansonsten:
-<pre><code>
+
+        <section data-state="hands-on" data-markdown>
+            ## Hands-on
+
+            Erstelle einen Protractor Test, der sicher stellt, dass die Kontaktliste korrekt gefiltert wird.
+
+            ### Bonus
+
+            Teste zusätzlich, dass der Klick auf einen Kontakt die korrekte Detailseite aufruft.
+
+        </section>
+
+        <section>
+            <h2>Custom Directives</h2>
+        </section>
+
+        <section>
+            <h2>Directive Definition Object</h2>
+<pre><code class="javascript" style="font-size: .9em; line-height: 1em;" data-trim>
+function testDirective(injectables) {
+    return {
+        priority: 0,
+        replace: false,
+        template: '&lt;div&gt;&lt;/div&gt;',
+        transclude: false,
+        restrict: 'A',
+        scope: false,
+        controller: '',
+        controllerAs: 'stringIdentifier',
+        bindToController: false,
+        require: 'siblingDirectiveName', // or // ['^parentDirectiveName', '?optionalDirectiveName', '?^optionalParent'],
+        compile: function compile(tElement, tAttrs, transclude) { },
+        link: function($scope, element, attrs, controllers, transclude) { }
+    };
+}
+
+angular.module('myApp').directive('testDirective', [testDirective]);
+</code></pre>
+
+        </section>
+
+        <section>
+            <h2>Directive Definition Object: Scope</h2>
+<pre><code class="javascript" data-trim>
+scope: {
+    'myProperty': '=?',
+    'otherProperty': '&amp;',
+    'someAttribute': '@'
+}
+</code></pre>
+
+        </section>
+
+        <section>
+            <h2>Beispiel Direktive</h2>
+<pre><code class="javascript" data-trim>
+function mouseInteractionDirective(injectables) {
+    return {
+        template: '&lt;div&gt;&lt;/div&gt;',
+        restrict: 'A',
+        link: function ($scope, element) {
+            $scope.mouseInteractionController.initialize(element);
+        }
+    };
+}
+
+angular
+    .module('myApp')
+    .directive('mouseInteraction', [mouseInteractionDirective]);
+</code></pre>
+        </section>
+
+        <section data-markdown>
+            ## Laufzeit von Direktiven
+
+            1. Browser parst HTML.
+            2. AngularJS identfiziert alle Direktiven für ein HTML Element.
+            3. Direktiven werden nach Priorität (priority) sortiert.
+            4. Die compile() Funktion jeder Direktive wird aufgerufen.
+            5. Kompilierte Templates werden in das DOM eingefügt und link() wird aufgerufen.
+        </section>
+
+        <section data-state="hands-on">
+            <h2>Hands-on</h2>
+            <p>
+                In der Kontaktliste soll jeder Kontakt ein automatisch generiertes Profilbild von Robohash.org erhalten.
+                Erstelle eine neue Direktive, die Anhand der E-Mail Adresse ein Bild ausgibt.
+            </p>
+            <h3>Robohash-API</h3>
+            <p>https://robohash.org/{{ email }}</p>
+        </section>
+
+        <section data-markdown>
+            ## $http Service
+
+            ### HTTP Methoden
+
+            - get()
+            - head()
+            - post()
+            - put()
+            - delete()
+            - patch()
+
+            Alle Methoden geben ein Promise-Objekt zurück.
+        </section>
+
+        <section data-markdown>
+            ## $http Custom Headers
+
+            ```javascript
+            angular.module('myApp').run(function($http) {
+                $http.defaults.headers.common.Authorization = 'Basic IVxfcIKfib341';
+            });
+            ```
+        </section>
+
+        <section data-markdown>
+            ## Promise API
+
+            ```javascript
+            const promise = $http.get('/someService');
+
+            promise
+                .then(successCallback)
+                .catch(errorCallback);
+            ```
+        </section>
+
+        <section data-markdown>
+            ## Promise Chaining
+
+            ``` javascript
+            function filterTemperatures(response) {
+                return response.data.map(element => element.temperature);
+            }
+
+            function calculateAverage(numbers) {
+                return numbers.reduce((a, b) =>  a + b) / numbers.length;
+            }
+
+            $http
+                .get('/weatherService')
+                .then(filterTemperatures)
+                .then(calculateAverage)
+                .then(result => console.log('Average is: ' + result));
+            ```
+        </section>
+
+        <section>
+            <h2>AngularJS in Grossprojekten</h2>
+
+            <ul>
+                <li class="fragment">Struktur</li>
+                <li class="fragment">Tooling: SystemJS, ES6 (via BabelJS), Unit Testing, e2e Testing</li>
+                <li class="fragment">Log service</li>
+                <li class="fragment">Continuous Integration</li>
+                <li class="fragment">Maven Integration</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Performance</h2>
+        </section>
+
+        <section data-markdown>
+            ## Konfigurationstipps
+
+            ``` javascript
+            angular
+                .module('myApp')
+                .config(['$logProvider','$compileProvider',function($logProvider, $compileProvider){
+                    $logProvider.debugEnabled(false);
+                    $compileProvider.debugInfoEnabled(false);
+                }]);
+            ```
+            Note:
+            $logProvider: Log Messages abschalten in Produktivumgebung.
+            $compileProvider: Unnötige CSS Klassen und Debug Infos entfernen.
+        </section>
+
+        <section>
+            <h2>Tipps für ng-model</h2>
+            <p>Definiere wie oft der $digest Cycle angestossen wird.</p>
+            <h3>ng-model-options</h3>
+<pre><code type="html" data-trim>
+&lt;input
+ ng-model=&quot;user.name&quot;
+ ng-model-options=&quot;{ updateOn: 'default blur', debounce: { 'default': 300, 'blur': 0 } }&quot;
+ type=&quot;text&quot;
+&gt;
+</code></pre>
+        </section>
+        <section>
+
+            <h2>Tipps für Data-Bindings</h2>
+            <p>
+                Two-way Binding nur verwenden, wo es wirklich nötig ist.
+            </p>
+            <p>
+                In den meisten Fällen reicht ein one-time Binding aus.
+            </p>
+<pre><code type="javascript" data-trim>
 {{ ::contact.name }}
 </code></pre>
-</section>
+        </section>
 
-<section>
-<h2>Performance Tipps für ng-repeat</h2>
-<p>
-ng-repeat immer mit track-by verwenden.
-ng-hide verwenden um gefilterte DOM Elemente
-<br>
-<br>
-=> ng-repeat entfernt und kreiert die DOM Nodes bei jedem Refresh
-</p>
-</section>
+        <section>
+            <h2>Tipps für ng-repeat</h2>
 
-<section>
-<h2>Fragen?</h2>
-<img src="http://s2.quickmeme.com/img/51/519a00e0cfdbbd288fad0cd62a8e603444b15dc3fe819828c37d18be41cfcffa.jpg">
-</section>
+            <p>ng-repeat immer mit track-by verwenden.</p>
+            <p>&#10174; ng-repeat entfernt und kreiert die DOM Nodes bei jedem Refresh.</p>
+        </section>
 
-<section>
-<h2>Vielen Dank!</h2>
-</section>
+        <section>
+            <h2>Fragen?</h2>
+            <img src="http://s2.quickmeme.com/img/51/519a00e0cfdbbd288fad0cd62a8e603444b15dc3fe819828c37d18be41cfcffa.jpg">
+        </section>
 
-            </div>
+        <section>
+            <h2>Vielen Dank!</h2>
+        </section>
 
-        </div>
+    </div>
 
-        <script src="lib/js/head.min.js"></script>
-        <script src="js/reveal.js"></script>
+</div>
 
-        <script>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
 
-            // Full list of configuration options available at:
-            // https://github.com/hakimel/reveal.js#configuration
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
 
 
-var cblocks = document.querySelectorAll("pre code");
+    var cblocks = document.querySelectorAll("pre code");
 
     if(cblocks.length) {
         for(var i=0, len=cblocks.length; i<len; i++) {
@@ -1326,27 +1248,27 @@ var cblocks = document.querySelectorAll("pre code");
         }
     }
 
-            Reveal.initialize({
-                controls: true,
-                progress: false,
-                history: true,
-                center: true,
+    Reveal.initialize({
+        controls: true,
+        progress: false,
+        history: true,
+        center: true,
 
-                transition: 'slide', // none/fade/slide/convex/concave/zoom
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-                // Optional reveal.js plugins
-                dependencies: [
-                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() {
-                     hljs.initHighlightingOnLoad(); } },
-                    { src: 'plugin/zoom-js/zoom.js', async: true },
-                    { src: 'plugin/notes/notes.js', async: true }
-                ]
-            });
+        // Optional reveal.js plugins
+        dependencies: [
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() {
+                hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/zoom-js/zoom.js', async: true },
+            { src: 'plugin/notes/notes.js', async: true }
+        ]
+    });
 
-        </script>
+</script>
 
-    </body>
+</body>
 </html>
