@@ -12,7 +12,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:300,700,400,100' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Roboto:300,700,400,100' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/ti8m.css" id="theme">
@@ -50,7 +50,7 @@
             </p>
             <div class="footer">
                 <p>
-                    Emil Effila • Mato Illic • Stefano Manco • Stefan Zollinger
+                    Mato Ilic • Stefan Zollinger
                 </p>
                 <ul>
                     <li>Consulting.</li>
@@ -71,8 +71,8 @@
                 Einstieg in AngularJS ist zwar einfach, aber&hellip;
             </h2>
             <ul>
-                <li class="fragment">Keine (offiziellen) Konventionen</li>
-                <li class="fragment">Viele verschiedene Ansätze im Netz</li>
+                <li class="fragment">keine (offiziellen) Konventionen.</li>
+                <li class="fragment">viele verschiedene Ansätze im Netz.</li>
                 <li class="fragment">AngularJS beinhaltet viel "Magic" der man nicht blind vertrauen sollte.</li>
             </ul>
         </section>
@@ -138,8 +138,8 @@ $ gulp
 </pre>
 
             <aside class="notes">
-                dependencies => Laufzeitabhängigkeiten (z.B. Angular oder Bootstrap)<br>
-                devDependencies => Abhängigkeiten für Entwicklung (z.B. Gulp oder Karma)<br>
+                dependencies &#10174; Laufzeitabhängigkeiten (z.B. Angular oder Bootstrap)<br>
+                devDependencies &#10174; Abhängigkeiten für Entwicklung (z.B. Gulp oder Karma)<br>
                 Verwaltung mittels NPM CLI
             </aside>
         </section>
@@ -193,7 +193,6 @@ components/
 
         <section>
             <h2>Standard Projektstruktur</h2>
-            <p>(offizielles AngularJS Tutorial)</p>
 <pre>
 <code class="bash" data-trim>
 /controllers
@@ -241,7 +240,7 @@ components/
         </section>
 
         <section>
-            <h2>Build System: Gulp</h2>
+            <h2>Workflow Automation mit Gulp</h2>
 
             <p>gulpfile.js</p>
 
@@ -249,7 +248,6 @@ components/
 
             <ul>
                 <li><strong>connect</strong> Startet den Entwicklungsserver.</li>
-                <li><strong>watch</strong> Überwacht Dateien und lädt die Seite neu.</li>
             </ul>
 
             <h3>&quot;test&quot;-Task</h3>
@@ -260,17 +258,38 @@ components/
         </section>
 
         <section>
+            <h2>Bundling mit webpack</h2>
+
+            <ul>
+                <li>Server mit Livereload während der Entwicklung.</li>
+                <li>Resource-Bundling für Production.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>import &#10234; export</h2>
+
+            <dl>
+                <dt>import</dt>
+                <dd>Importiert die öffentlichen Teile eines Paketes in eine lokale Variable / Referenz.</dd>
+                <dt>export</dt>
+                <dd>Macht Komponententeile zugänglich für andere Module.</dd>
+            </dl>
+        </section>
+
+        <section>
             <h2>AngularJS im Überblick</h2>
             <img src="/img/ng-arch.svg">
         </section>
 
         <section>
-            <h2>Module</h2>
-            <p>Sammlungen von AngularJS Objekten</p>
+            <h2>Angular Modul</h2>
+
+            <p>Sammlung von Klassen, Funktionen und Objekten.</p>
         </section>
 
         <section>
-            <h2>Neues Modul definieren:</h2>
+            <h2>Neues Modul definieren</h2>
 <pre>
 <code class="javascript" data-trim>
 angular.module('myApp', []);
@@ -298,27 +317,22 @@ angular
     .controller('myController', '')
 </code>
 </pre>
-            <p>
-                Ablauf
-            </p>
+            <h3>Ablauf</h3>
             <ul>
                 <li>Modul wird mit Dependency 'ui-router'  initialisiert
                 <li>config() wird ausgeführt
                 <li>run() wird ausgeführt
-
             </ul>
-
-
         </section>
 
 
         <section>
             <h2>Dependency Injection</h2>
             <ul>
-                <li class="fragment">Injector bietet einen Weg Module nach Namen zu referenzieren
-                <li class="fragment">Jede AngularJS App hat einen Injector
-                <li class="fragment">Jedes Modul wird nur einmal instanziert
-                <li class="fragment">Injector löst Dependencies in Funktionen auf:
+                <li class="fragment">Injector bietet einen Weg Module nach Namen zu referenzieren.</li>
+                <li class="fragment">Jede AngularJS App hat einen Injector.</li>
+                <li class="fragment">Jedes Modul wird nur einmal instanziert.</li>
+                <li class="fragment">Injector löst Dependencies in Funktionen auf.</li>
             </ul>
 
 <pre class="fragment">
@@ -336,7 +350,7 @@ class MyService {
             <h2>Dependency Injection</h2>
             <ul>
                 <li><strong>Achtung:</strong> Automatische DI funktioniert nur solange der Code nicht minifiziert ist.
-                <li><strong>Besser:</strong> Dependencies explizit angeben:
+                <li><strong>Besser:</strong> Dependencies explizit angeben.
             </ul>
 
 <pre>
@@ -354,7 +368,8 @@ angular
 
         </section>
         <section>
-            <h2>Tipp: Mit 'ngStrictDi' explizite DI Annotationen forcieren:</h2>
+            <h2>Tipp</h2>
+            <p>Mit 'ngStrictDi' explizite DI Annotationen forcieren.</p>
 <pre>
 <code class="html" data-trim>&lt;body ng-app="myApp" ng-strict-di=&quot;true&quot;&gt;</code>
 </pre>
@@ -364,7 +379,7 @@ angular
         <section>
             <h2>Views (Templates)</h2>
             <p>
-                HTML Files:
+                HTML Dateien.
             </p>
 <pre>
 <code type="html" data-trim>
@@ -383,11 +398,10 @@ Hello World.
 
         <section>
             <h2>Routing</h2>
-            <ul>
-                Verbindet HTML Template mit URL</ul>
+            <p>Verbindet States und ihre Views mit spezifischen URLs.</p>
         </section>
         <section>
-            <h2>Beispiel einer Route:</h2>
+            <h2>Beispiel einer Route</h2>
 <pre>
 <code type="javascript" data-trim>
 function contactListState($stateProvider) {
@@ -410,48 +424,47 @@ angular
                 <li class="fragment">
                     <h3>ng-route</h3>
                     <ul>
-                        <li>Angular Default
-                        <li>Erlaubt einfache Routes
+                        <li>Standard-Komponente von Angular.</li>
+                        <li>Erlaubt nur einfache Routes und Views.</li>
                     </ul>
                 </li>
                 <li class="fragment">
                     <h3>ui-router</h3>
                     <ul>
-                        <li>Kann verschachtelte Views darstellen und komplexe States abbilden
-                        <li>De-facto Standard
+                        <li>Kann verschachtelte Views darstellen und komplexe States abbilden.</li>
+                        <li>De-facto Standard.</li>
                     </ul>
                 </li>
             </ul>
-            <h3 class="fragment">In diesem Workshop: ui-router only.</h3>
+            <h3 class="fragment">Empfehlung: immer ui-router verwenden.</h3>
         </section>
         <section class="hands-on" data-state="hands-on" >
             <h2>Hands-on</h2>
             <h3>Neue Route für Kontaktliste erstellen. </h3>
             <ul>
-                <li>Neues Modul ContactList (analog 'Welcome') erstellen
-                <li>View Template: contact-list.html
-                <li>Route: (/contact-list)
+                <li>Neues Modul ContactList (analog 'Welcome') erstellen.</li>
+                <li>View Template: contact-list.html.</li>
+                <li>Route: /contact-list.</li>
 
             </ul>
             <p>
                 <img width="200" height="200" src="http://cdn.meme.am/instances/500x/57106019.jpg">
             </p>
-
         </section>
 
         <section>
             <h2>Directives</h2>
             <ul>
-                <li class="fragment">Wiederverwendbare GUI Elemente
-                <li class="fragment">Erweiterte HTML Tags bzw. Web Components
-                <li class="fragment">Darf DOM Manipulationen machen
-                <li class="fragment">Kann HTML Elemente mit neuem Verhalten erweitern
+                <li class="fragment">Wiederverwendbare UI-Komponenten.</li>
+                <li class="fragment">Erweiterte HTML Tags bzw. Web Components.</li>
+                <li class="fragment">Darf DOM Manipulationen machen.</li>
+                <li class="fragment">Kann HTML Elemente mit neuem Verhalten erweitern.</li>
             </ul>
         </section>
 
 
         <section>
-            <h2>Beispiele für Direktiven:</h2>
+            <h2>Beispiele für Direktiven</h2>
             <div class="fragment">
                 <h3>ng-model</h3>
 <pre>
@@ -487,33 +500,31 @@ angular
 
             * Füge der contact-list View ein Input Feld hinzu.
             * Verwende <code>ng-model</code> um den Input einer Variable zuzuweisen.
-            * Gib die Variable auf der Seite aus
+            * Gib die Variable auf der Seite aus.
 
             ### Bonus
 
-            * Falls der Input Wert 'spin' ist, soll dem Element eine CSS Klasse mit dem Namen 'spin' hinzugefügt werden (Tipp: ng-class)
+            * Falls der Input Wert 'spin' ist, soll dem Element eine CSS Klasse mit dem Namen 'spin' hinzugefügt werden (Tipp: ng-class).
         </section>
 
         <section>
             <h2>Controller</h2>
-            <h3>Controller stellen der View Funktionen zur Verfügung und repräsentieren den State der View.</h3>
+            <p>Controller stellen der View Funktionen zur Verfügung und repräsentieren den State der View. Controller agieren als View Model.</p>
         </section>
 
         <section>
-            <h2>Was nicht in den Controller gehört
-            </h2>
+            <h2>Was nicht in den Controller gehört</h2>
             <ul>
-                <li class="fragment"><strong>DOM Manipulation.</strong>
-                <li class="fragment"><strong>Output formatieren und filtern.</strong>
-                <li class="fragment"><strong>State mit anderen Controllern teilen.</strong>
-
+                <li class="fragment">Business-Logik.</li>
+                <li class="fragment">State mit anderen Controllern teilen.</li>
+                <li class="fragment">Output formatieren.</li>
             </ul>
             <aside class="notes">
-
-                <li class="fragment"><strong>DOM Manipulation.</strong> In den meisten Fällen wird die View durch Data-Binding manipuliert. Manuelle Änderungen am HTML werden durch Direktiven abgekapselt.
-                <li class="fragment"><strong>Output formatieren und filtern.</strong> Dazu sind AngularJS Filter da
-                <li class="fragment"><strong>State mit anderen Controllern teilen.</strong> Dafür gibt es die AngularJS Services
-
+                <ul>
+                    <li><strong>Business-Logik.</strong> Gehört in Services</li>
+                    <li><strong>Output formatieren und filtern.</strong> Dazu sind AngularJS Filter da</li>
+                    <li><strong>State mit anderen Controllern teilen.</strong> Dafür gibt es die AngularJS Services</li>
+                </ul>
             </aside>
         </section>
 
@@ -563,18 +574,17 @@ angular
         <section data-state="hands-on">
             <h2>Hands-on</h2>
             <ul>
-                <li>Erstelle einen neuen Controller 'ContactListController' im Modul ContactList
-                <li>Definiere einen Array mit den Namen der Kontakte
-                <li>Liste diese Namen in der View auf. (siehe: ng-repeat Direktive)
+                <li>Erstelle einen neuen Controller 'ContactListController' im Modul ContactList.</li>
+                <li>Definiere einen Array mit den Namen der Kontakte.</li>
+                <li>Liste diese Namen in der View auf (siehe: ng-repeat Direktive).</li>
             </ul>
         </section>
 
         <section>
-
             <h2>Filter</h2>
             <ul>
-                <li class="fragment">Transformieren Objekte im View Template
-                <li class="fragment">Sind Chainable durch den Pipe Separator
+                <li class="fragment">Transformieren Werte und Objekte im View Template.</li>
+                <li class="fragment">Sind Chainable durch den Pipe Separator.</li>
             </ul>
             <div class="fragment">
                 <p>
@@ -631,14 +641,16 @@ angular
         <section data-state="hands-on">
             <h2>Hands-on</h2>
             <ul>
-                <li>Erstelle eine Detailseite für einen Kontakt
-                <li>Formularfelder für
+                <li>Erstelle eine Detailseite für einen Kontakt.</li>
+                <li>
+                    Formularfelder für
                     <ul>
-                        <li>Name
-                        <li>Email
-                        <li>Telefonnummer
+                        <li>Name</li>
+                        <li>Email</li>
+                        <li>Telefonnummer</li>
                     </ul>
-                <li>Validiere den Namen (required) und die E-Mail (korrekte E-Mail Adresse)
+                </li>
+                <li>Validiere den Namen (required) und die E-Mail (korrekte E-Mail Adresse).</li>
             </ul>
         </section>
 
@@ -668,7 +680,7 @@ angular
             </dl>
 
             <p class="fragment small">
-                (That's it, $destroy ist der einzige...)
+                That's it, $destroy ist der einzige&hellip;
             </p>
         </section>
 
@@ -686,8 +698,8 @@ angular
             <h2>Scope Isolation</h2>
             <ul>
                 <li>Betrifft Direktiven.</li>
-                <li>Der isolierte Child Scope verändert den Parent Scope nicht (ng-if, ng-switch, ng-repeat, ng-view, ng-include)</li>
-                <li>Primitives die an eine Direktive mit isoliertem Scope übergeben werden, verlieren das 2-way Binding</li>
+                <li>Der isolierte Child Scope verändert den Parent Scope nicht (ng-if, ng-switch, ng-repeat, ng-view, ng-include).</li>
+                <li>Primitives die an eine Direktive mit isoliertem Scope übergeben werden, verlieren das 2-way Binding.</li>
             </ul>
         </section>
 
@@ -719,20 +731,12 @@ angular
             <img src="img/digest-cycle.svg">
         </section>
 
-        <section data-markdown>
-            ## TODO: Beispiel Digest-Loop:
-
-            - Binding mit ng-model / Input
-            - $apply() mit ng-click Button
-        </section>
-
-
         <section>
             <h2>Controller, Scope und controllerAs</h2>
-            <p>Es gibt zwei Varianten wie Controller und Scopes eingesetzt werden können.
+            <p>Es gibt zwei Varianten wie Controller und Scopes eingesetzt werden können.</p>
             <dl>
                 <dt class="fragment">Standard:</dt>
-                <dd class="fragment">Variablen und Methoden werden direkt auf dem Scope definiert <strong>&#10174; DEATH PENALTY</strong>.</dd>
+                <dd class="fragment">Variablen und Methoden werden direkt auf dem Scope definiert. <img src="img/death.svg" style="height: 1em; vertical-align: text-bottom;"></dd>
                 <dt class="fragment">'controllerAs'</dt>
                 <dd class="fragment">Controller wird als eigenes Objekt an den Scope übergeben. Variablen und Methoden werden auf dem Controller definiert. Der Controller agiert als View Model.</dd>
             </dl>
@@ -803,7 +807,7 @@ angular
 
             * Erstelle einen Controller für die Detail-View mit controllerAs Notation.
             * Verlinke den Kontakt aus der Liste mit der Detailansicht. Verwende dafür die URL Parameter von ui-router.
-            * Die Route sollte so aussehen: /detail/:name
+            * Die Route sollte /detail/:name lauten.
         </section>
 
         <section>
@@ -832,7 +836,7 @@ angular
                 <li class="fragment">Parent der anderen Service Typen (ausser Constant).</li>
                 <li class="fragment">Konfigurierbar.</li>
                 <li class="fragment">DI Abhängigkeiten im Provider Konstruktor können nur andere Provider oder Constants sein.</li>
-                <li class="fragment">Beispiel: $stateProvider, $httpProvider.</li>
+                <li class="fragment">Beispiele: $stateProvider, $httpProvider.</li>
             </ul>
         </section>
 
@@ -859,7 +863,7 @@ angular.module('SomeModule').provider('MyService', [MyServiceProvider]);
 
         <section>
             <h2>Factory</h2>
-            <p>Wie Provider, aber ohne Konfiguration</p>
+            <p>Wie Provider, aber ohne Konfiguration.</p>
         </section>
 
 
@@ -886,7 +890,7 @@ angular.module('SomeModule').factory('TestFactory', [TestFactory]);
         <section>
             <h2>Service</h2>
             <p>Wie Factory, aber anstatt einem Objekt definieren wir eine Klasse, die mit 'new' instanziert wird.</p>
-            <p><strong>Empfehlung: Services gegenüber Factories vorziehen.</strong></p>
+            <p><strong>Empfehlung &#10174; Services gegenüber Factories vorziehen.</strong></p>
         </section>
 
         <section>
@@ -1172,7 +1176,7 @@ angular
             ``` javascript
             angular
                 .module('myApp')
-                .config(['$logProvider','$compileProvider',function($logProvider, $compileProvider){
+                .config(['$logProvider','$compileProvider', function($logProvider, $compileProvider) {
                     $logProvider.debugEnabled(false);
                     $compileProvider.debugInfoEnabled(false);
                 }]);
@@ -1261,8 +1265,7 @@ angular
             { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
             { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
             { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-            { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() {
-                hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
             { src: 'plugin/zoom-js/zoom.js', async: true },
             { src: 'plugin/notes/notes.js', async: true }
         ]
