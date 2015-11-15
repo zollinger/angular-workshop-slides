@@ -954,6 +954,87 @@ angular
         </section>
 
         <section>
+            <h2>Authentication</h2>
+
+            <p>
+                Wir müssen alle Routes unzugänglich machen, bis sich der Benutzer eingeloggt hat. Anschliessend sollte der Benutzer zur gewünschten Seite
+                weitergeleitet werden.
+            </p>
+        </section>
+
+        <section>
+            <h2>Möglichkeit 1</h2>
+
+<pre><code class="javascript" data-trim>
+$rootScope.$on('$locationChangeSuccess',
+    function(event, newUrl, oldUrl, newState, oldState) {
+        event.preventDefault();
+
+        // authenticate
+
+        $urlRouter.sync();
+    }
+);
+</code></pre>
+
+            <p>Event wird beim initialen Laden nicht ausgelöst.</p>
+        </section>
+
+        <section>
+            <h2>Möglichkeit 2</h2>
+
+<pre><code class="javascript" data-trim>
+resolve: {
+    authToken: ['authenticationService', function(authService) {
+        return authService.authenticate();
+    }]
+}
+</code></pre>
+        </section>
+
+        <section>
+            <h2>Auth-Token</h2>
+
+<pre><code class="javascript" data-trim>
+$httpProvider.interceptors.push(/* function or string */);
+</code></pre>
+        </section>
+
+        <section>
+            <h2>Auth-Token</h2>
+
+<pre><code data-type="javascript" data-trim>
+function myInterceptor() {
+    return {
+        request: function(config) {
+            config.headers.authToken = 'super-secret';
+
+            return config;
+        }
+    };
+}
+</code></pre>
+        </section>
+
+        <section data-state="hands-on">
+            <h2>Hands-on</h2>
+
+            <ul>
+                <li>
+                    Füge einen Logindialog zur Applikation hinzu.
+                    <ul>
+                        <li>POST: /Users/login</li>
+                        <li>Body-Parameter &quot;email&quot; und &quot;password&quot;.</li>
+                        <li>"data.id"-Property in der Response enthält den Auth-Token.</li>
+                    </ul>
+                </li>
+                <li>
+                    Sende den Auth-Token im "Authorization"-Header mit.
+                </li>
+            </ul>
+        </section>
+
+        <section>
             <h2>Testing</h2>
             <ul>
                 <li>End to end Testing mit Protractor.</li>
