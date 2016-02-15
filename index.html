@@ -278,6 +278,39 @@ components/
         </section>
 
         <section>
+            <h2>Modul-Export</h2>
+
+<pre><code class="javascript" data-trim>
+class ExampleController {
+    // ...
+}
+
+export default [
+    'dependency1',
+    'dependency2',
+    ExampleController
+];
+</code></pre>
+        </section>
+
+        <section>
+            <h2>Modul-Import</h2>
+
+<pre><code class="javascript" data-trim>
+import angular from 'angular';
+import ExampleController from './example-controller';
+
+const dependencies = [
+
+];
+
+export default angular
+    .module('example-module', dependencies)
+    .controller('ExampleController', ExampleController);
+</code></pre>
+        </section>
+
+        <section>
             <h2>AngularJS im Überblick</h2>
             <img src="/img/ng-arch.svg">
         </section>
@@ -438,6 +471,7 @@ angular
             </ul>
             <h3 class="fragment">Empfehlung: immer ui-router verwenden.</h3>
         </section>
+
         <section class="hands-on" data-state="hands-on" >
             <h2>Hands-on</h2>
             <h3>Neue Route für Kontaktliste erstellen. </h3>
