@@ -557,7 +557,7 @@ angular
         $stateProvider.state('contact-list', {
             url: '/contact-list',
             templateUrl: 'contact-list.html',
-            controller: 'ContactListController as contactListController'
+            controller: 'ContactListController as $ctrl'
         });
     }
 
@@ -1131,9 +1131,10 @@ angular.module('myApp').directive('testDirective', [testDirective]);
             <h2>Directive Definition Object: Scope</h2>
 <pre><code class="javascript" data-trim>
 scope: {
-    'myProperty': '=?',
-    'otherProperty': '&amp;',
-    'someAttribute': '@'
+    myProperty: '=?',
+    otherProperty: '&amp;',
+    someAttribute: '@',
+    oneWayProtery: '<' // new in 1.5
 }
 </code></pre>
 
@@ -1144,7 +1145,6 @@ scope: {
 <pre><code class="javascript" data-trim>
 function mouseInteractionDirective(injectables) {
     return {
-        template: '&lt;div&gt;&lt;/div&gt;',
         restrict: 'A',
         link: function ($scope, element) {
             $scope.mouseInteractionController.initialize(element);
@@ -1168,11 +1168,48 @@ angular
             5. Kompilierte Templates werden in das DOM eingefügt und link() wird aufgerufen.
         </section>
 
+        <section>
+            <h2>Custom Components</h2>
+            <p>
+                Neu ab Angular 1.5.<br>
+                <small><a href="https://docs.angularjs.org/guide/component" target="_blank">docs.angularjs.org/guide/component</a></small>
+            </p>
+        </section>
+
+        <section>
+            <h2>Component Definition Object</h2>
+<pre><code class="javascript" style="font-size: .9em; line-height: 1em;" data-trim>
+function customComponent(injectables) {
+    return {
+        template: '&lt;div&gt;&lt;/div&gt;',
+        transclude: false,
+        bindings: {
+            myAttribute: '='
+        },
+        controller: 'CustomComponentController', // instantiated as $ctrl
+        require: {
+            parent: '^parentComponent'
+        }
+    };
+}
+
+angular.module('myApp').directive('testDirective', [testDirective]);
+</code></pre>
+        </section>
+
+        <section>
+            <h2>Component oder Directive?</h2>
+            <ul>
+                <li>Component für Elemente.</li>
+                <li>Directive für Attribute.</li>
+            </ul>
+        </section>
+
         <section data-state="hands-on">
             <h2>Hands-on</h2>
             <p>
                 In der Kontaktliste soll jeder Kontakt ein automatisch generiertes Profilbild von Robohash.org erhalten.
-                Erstelle eine neue Direktive, die Anhand der E-Mail Adresse ein Bild ausgibt.
+                Erstelle eine neue Komponente, die Anhand der E-Mail Adresse ein Bild ausgibt.
             </p>
             <h3>Robohash-API</h3>
             <p>https://robohash.org/{{ email }}</p>
