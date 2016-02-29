@@ -1123,7 +1123,7 @@ describe('Angular Workshop Address Book', function() {
         'should show a contact detail page when a contact was selected',
         function() {
             browser.get('http://localhost:8088/');
-            element(by.model('contacts')).get(1).click();
+            element(by.model('contacts')).click();
 
             expect(browser.getCurrentUrl()).toContain('/detail/1');
         }
@@ -1141,6 +1141,11 @@ describe('Angular Workshop Address Book', function() {
             ### Bonus
 
             Teste zusätzlich, dass der Klick auf einen Kontakt die korrekte Detailseite aufruft.
+
+            ### Tipps
+
+            * Tests sind alle Dateien die auf ".spec.js" enden. 
+            * `gulp test` startet die Tests
 
         </section>
 
@@ -1225,21 +1230,19 @@ angular
         <section>
             <h2>Component Definition Object</h2>
 <pre><code class="javascript" style="font-size: .9em; line-height: 1em;" data-trim>
-function customComponent(injectables) {
-    return {
-        template: '&lt;div&gt;&lt;/div&gt;',
-        transclude: false,
-        bindings: {
-            myAttribute: '='
-        },
-        controller: 'CustomComponentController', // instantiated as $ctrl
-        require: {
-            parent: '^parentComponent'
-        }
-    };
-}
+const myComponent = {
+    template: '&lt;div&gt;&lt;/div&gt;',
+    transclude: false,
+    bindings: {
+        myAttribute: '='
+    },
+    controller: 'CustomComponentController', // instantiated as $ctrl
+    require: {
+        parent: '^parentComponent'
+    }
+};
 
-angular.module('myApp').directive('testDirective', [testDirective]);
+angular.module('myApp').component('customComponent', myComponent);
 </code></pre>
             <p>
                 <i>$onInit</i> Lifecycle Callback als Ersatz für <i>link</i>.
